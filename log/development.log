@@ -1,0 +1,1226 @@
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221205224200)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224200"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20221205224219)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224219"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBeans (20221205224231)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "beans" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer NOT NULL, "origin" varchar, "name" varchar, "description" varchar, "image" varchar, "roast" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_486e57ebc1"
+FOREIGN KEY ("shop_id")
+  REFERENCES "shops" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_beans_on_shop_id" ON "beans" ("shop_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224231"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20221205224246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "bean_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fcf5f70be8"
+FOREIGN KEY ("bean_id")
+  REFERENCES "beans" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_bean_id" ON "favorites" ("bean_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224246"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-05 22:44:29.975050"], ["updated_at", "2022-12-05 22:44:29.975050"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Opal O'Keefe"], ["email", "brendan.kreiger@shields-mcglynn.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/consequunturfugiatet.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.946483"], ["updated_at", "2022-12-05 22:46:09.946483"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Phyllis West MD"], ["email", "curt@rath-tromp.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/etdolorumaccusamus.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.951859"], ["updated_at", "2022-12-05 22:46:09.951859"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Leland Glover VM"], ["email", "ila_schuppe@macgyver.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/sintenimaspernatur.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.955540"], ["updated_at", "2022-12-05 22:46:09.955540"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Lady McLaughlin DDS"], ["email", "audrea@corwin-hettinger.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/molestiaeliberoconsectetur.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.959117"], ["updated_at", "2022-12-05 22:46:09.959117"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Rev. Les Kautzer"], ["email", "carey_orn@kohler-jaskolski.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/minusquisaut.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.963043"], ["updated_at", "2022-12-05 22:46:09.963043"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Teresia Hyatt"], ["email", "graham_bergnaum@king.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/molestiaevelfugiat.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.967101"], ["updated_at", "2022-12-05 22:46:09.967101"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Lorretta Gorczany"], ["email", "percy.volkman@greenholt.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/atquedolornemo.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.971745"], ["updated_at", "2022-12-05 22:46:09.971745"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Trey Heaney"], ["email", "kiyoko.ebert@marvin.info"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/dignissimosquiaitaque.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.976035"], ["updated_at", "2022-12-05 22:46:09.976035"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Mr. Ula Kulas"], ["email", "frederick@hessel.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/cumquasineque.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.979862"], ["updated_at", "2022-12-05 22:46:09.979862"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Gov. Lee Armstrong"], ["email", "donny_crona@mohr.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/etquisid.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:46:09.983420"], ["updated_at", "2022-12-05 22:46:09.983420"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Danica Ullrich"], ["email", "marc.bergstrom@turner.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/explicaboblanditiisnemo.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.072722"], ["updated_at", "2022-12-05 22:47:06.072722"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Priscilla O'Kon"], ["email", "erich@gutmann-legros.info"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/magnampraesentiumatque.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.077487"], ["updated_at", "2022-12-05 22:47:06.077487"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Mr. Fabiola Huel"], ["email", "cindie@kautzer.co"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/facilisofficiisquos.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.081378"], ["updated_at", "2022-12-05 22:47:06.081378"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Burt Dickinson"], ["email", "enola_wyman@kohler.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/consequatursintcorrupti.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.085781"], ["updated_at", "2022-12-05 22:47:06.085781"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Santiago Klein"], ["email", "joseph.kshlerin@schowalter-okeefe.co"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/quaeratoditmollitia.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.089815"], ["updated_at", "2022-12-05 22:47:06.089815"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Melonie Schimmel"], ["email", "tory@carter-doyle.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/possimusautmodi.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.093537"], ["updated_at", "2022-12-05 22:47:06.093537"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Elois Wiegand Ret."], ["email", "darcey.anderson@waters.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/harumnonreiciendis.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.097888"], ["updated_at", "2022-12-05 22:47:06.097888"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Adrianna O'Hara"], ["email", "elliot@balistreri.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/etearumipsum.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.101627"], ["updated_at", "2022-12-05 22:47:06.101627"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Edwin Grant V"], ["email", "inez.cummerata@hand.co"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/uteiusofficiis.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.105217"], ["updated_at", "2022-12-05 22:47:06.105217"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Kathaleen Ortiz"], ["email", "newton@schaefer.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/quamveldolore.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:47:06.109215"], ["updated_at", "2022-12-05 22:47:06.109215"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Moore, Botsford and Keebler"], ["address", "774 Marcia Ranch, Denesikfurt, UT 06014-2319"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 22:47:06.119920"], ["updated_at", "2022-12-05 22:47:06.119920"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kreiger, Ziemann and Herzog"], ["address", "Suite 885 47422 Garrett Trail, New Carson, NM 06140-0355"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/8.png"], ["created_at", "2022-12-05 22:47:06.124446"], ["updated_at", "2022-12-05 22:47:06.124446"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Goldner-Kutch"], ["address", "93173 Akiko Skyway, West Synthialand, UT 83412-9230"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/4.png"], ["created_at", "2022-12-05 22:47:06.128276"], ["updated_at", "2022-12-05 22:47:06.128276"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Keeling, Towne and Sauer"], ["address", "Apt. 677 139 Kenya Trail, Lake Jeraldchester, MS 93603-0135"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["created_at", "2022-12-05 22:47:06.132195"], ["updated_at", "2022-12-05 22:47:06.132195"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Beatty Group"], ["address", "9743 Alphonso Lights, New Herschel, AK 17060"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["created_at", "2022-12-05 22:47:06.136269"], ["updated_at", "2022-12-05 22:47:06.136269"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Harber, Huel and Jacobson"], ["address", "8266 Hildegarde Neck, West Scottview, AR 50172"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/10.png"], ["created_at", "2022-12-05 22:47:06.140072"], ["updated_at", "2022-12-05 22:47:06.140072"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pfannerstill, Terry and Jacobi"], ["address", "315 Yost Fort, Monahanview, SC 71202-8007"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 22:47:06.143735"], ["updated_at", "2022-12-05 22:47:06.143735"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mitchell, Emard and Schulist"], ["address", "Suite 653 11981 Darell Walks, East Arliehaven, MT 95895-5299"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 22:47:06.147933"], ["updated_at", "2022-12-05 22:47:06.147933"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hills Inc"], ["address", "8877 Robby Common, Zboncakchester, WA 94836"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/4.png"], ["created_at", "2022-12-05 22:47:06.151509"], ["updated_at", "2022-12-05 22:47:06.151509"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jacobi, Runolfsson and Schamberger"], ["address", "77315 Mann Trail, East Besschester, UT 79301-2249"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/8.png"], ["created_at", "2022-12-05 22:47:06.155299"], ["updated_at", "2022-12-05 22:47:06.155299"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221205224200)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224200"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20221205224219)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224219"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBeans (20221205224231)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "beans" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer NOT NULL, "origin" varchar, "name" varchar, "description" varchar, "image" varchar, "roast" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_486e57ebc1"
+FOREIGN KEY ("shop_id")
+  REFERENCES "shops" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_beans_on_shop_id" ON "beans" ("shop_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224231"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20221205224246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "bean_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fcf5f70be8"
+FOREIGN KEY ("bean_id")
+  REFERENCES "beans" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_bean_id" ON "favorites" ("bean_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224246"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-05 22:51:04.910320"], ["updated_at", "2022-12-05 22:51:04.910320"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Gov. Dusty Gerlach"], ["email", "helena_denesik@effertz.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/autdictaex.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.240967"], ["updated_at", "2022-12-05 22:51:05.240967"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Johnnie Ruecker I"], ["email", "margarette@osinski-spinka.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/rerumquaedolorum.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.245788"], ["updated_at", "2022-12-05 22:51:05.245788"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Carson Abshire"], ["email", "antwan.hayes@volkman-hills.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/nesciuntquiaminima.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.249761"], ["updated_at", "2022-12-05 22:51:05.249761"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Rubye Ferry"], ["email", "harriett.rau@simonis.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/undequiamagni.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.253941"], ["updated_at", "2022-12-05 22:51:05.253941"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Bert Heathcote"], ["email", "del.deckow@gibson-kuphal.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/sitautemfugiat.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.258502"], ["updated_at", "2022-12-05 22:51:05.258502"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Larraine Hane"], ["email", "bob@mccullough.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/maximeinsunt.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.262168"], ["updated_at", "2022-12-05 22:51:05.262168"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Msgr. Maricruz Rodriguez"], ["email", "elbert@miller.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/quaeratsitmagni.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.266131"], ["updated_at", "2022-12-05 22:51:05.266131"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Sanford Dicki"], ["email", "tristan@kuvalis-crooks.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/consequaturnobisveniam.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.270150"], ["updated_at", "2022-12-05 22:51:05.270150"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Abraham Wilderman"], ["email", "gerry.bauch@gerhold.info"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/voluptasaccusamusipsum.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.273924"], ["updated_at", "2022-12-05 22:51:05.273924"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Terica Sawayn DDS"], ["email", "truman_rempel@ortiz.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/quiaconsequaturin.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:51:05.277919"], ["updated_at", "2022-12-05 22:51:05.277919"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pacocha, Ward and Pfeffer"], ["address", "1427 Ernser Drive, New Alvaromouth, NE 92209-4740"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 22:51:05.288156"], ["updated_at", "2022-12-05 22:51:05.288156"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Steuber, Abshire and Schultz"], ["address", "Apt. 203 37740 Pouros Radial, New Marcelo, MD 23702"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 22:51:05.292435"], ["updated_at", "2022-12-05 22:51:05.292435"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Smith-Rohan"], ["address", "9956 Janis Terrace, Hayleytown, SC 89933"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 22:51:05.296666"], ["updated_at", "2022-12-05 22:51:05.296666"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Fay, Zieme and McKenzie"], ["address", "Apt. 757 15920 Mitchell Green, Lake Dorathy, TX 88245"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/8.png"], ["created_at", "2022-12-05 22:51:05.300862"], ["updated_at", "2022-12-05 22:51:05.300862"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dare-Wiza"], ["address", "36895 Predovic Lights, Streichfort, SD 44016"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/9.png"], ["created_at", "2022-12-05 22:51:05.304990"], ["updated_at", "2022-12-05 22:51:05.304990"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mueller-Wiegand"], ["address", "Apt. 485 85114 Mosciski Corner, West Herb, AR 53174-8074"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/9.png"], ["created_at", "2022-12-05 22:51:05.308938"], ["updated_at", "2022-12-05 22:51:05.308938"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Conn, Sporer and Welch"], ["address", "Apt. 171 4582 Glover Forges, Lake Verlafort, AR 00933-5097"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/10.png"], ["created_at", "2022-12-05 22:51:05.313097"], ["updated_at", "2022-12-05 22:51:05.313097"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Collins-Hintz"], ["address", "343 Jacobi Stravenue, Mantestad, VA 76799"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["created_at", "2022-12-05 22:51:05.317143"], ["updated_at", "2022-12-05 22:51:05.317143"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Runte Inc"], ["address", "372 Wan Mountains, Lake Art, NM 42226-6578"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 22:51:05.320983"], ["updated_at", "2022-12-05 22:51:05.320983"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ritchie-Gerhold"], ["address", "Apt. 589 921 Ortiz Knolls, North Lingberg, WI 77574"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/9.png"], ["created_at", "2022-12-05 22:51:05.324720"], ["updated_at", "2022-12-05 22:51:05.324720"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221205224200)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224200"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20221205224219)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224219"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBeans (20221205224231)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "beans" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer NOT NULL, "origin" varchar, "name" varchar, "description" varchar, "image" varchar, "roast" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_486e57ebc1"
+FOREIGN KEY ("shop_id")
+  REFERENCES "shops" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_beans_on_shop_id" ON "beans" ("shop_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224231"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20221205224246)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "bean_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fcf5f70be8"
+FOREIGN KEY ("bean_id")
+  REFERENCES "beans" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_bean_id" ON "favorites" ("bean_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224246"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-05 22:55:05.410246"], ["updated_at", "2022-12-05 22:55:05.410246"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Harvey Goodwin"], ["email", "thurman@bogisich.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/consectetursitarchitecto.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.826724"], ["updated_at", "2022-12-05 22:55:05.826724"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Diego Rempel III"], ["email", "paris.walker@watsica.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/etetanimi.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.831124"], ["updated_at", "2022-12-05 22:55:05.831124"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Marci Breitenberg"], ["email", "arnita_sawayn@romaguera-schneider.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/idnamillum.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.835546"], ["updated_at", "2022-12-05 22:55:05.835546"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Korey Huels"], ["email", "wendell@schimmel-greenfelder.info"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/illumrepellendusveniam.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.839217"], ["updated_at", "2022-12-05 22:55:05.839217"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Joseph Streich"], ["email", "rickie.huels@grant-barton.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/fugaquiased.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.843612"], ["updated_at", "2022-12-05 22:55:05.843612"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Ms. Sherley Parisian"], ["email", "elin.lindgren@reichel-farrell.info"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/praesentiummolestiasaperiam.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.848223"], ["updated_at", "2022-12-05 22:55:05.848223"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Andy Jerde"], ["email", "su.grimes@hackett.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/quiquamqui.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.853097"], ["updated_at", "2022-12-05 22:55:05.853097"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Dino Stracke"], ["email", "clelia_powlowski@price.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/estatvoluptas.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.857104"], ["updated_at", "2022-12-05 22:55:05.857104"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Doug Keebler"], ["email", "juanita@gleichner-denesik.info"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/autnemoet.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.860725"], ["updated_at", "2022-12-05 22:55:05.860725"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Milford Nitzsche"], ["email", "corina.hackett@corkery-bode.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/nullaquasad.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:55:05.865939"], ["updated_at", "2022-12-05 22:55:05.865939"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Keeling-Hickle"], ["address", "Apt. 531 937 Hills Junctions, New Chloebury, TX 69275"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["created_at", "2022-12-05 22:55:05.876654"], ["updated_at", "2022-12-05 22:55:05.876654"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kris-Hayes"], ["address", "Suite 698 784 Bednar Roads, New Lynnatown, AZ 86714-6432"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/8.png"], ["created_at", "2022-12-05 22:55:05.880969"], ["updated_at", "2022-12-05 22:55:05.880969"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "McClure Inc"], ["address", "Suite 739 900 Cleveland Pines, New Garrett, LA 14549-8480"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/11.png"], ["created_at", "2022-12-05 22:55:05.884921"], ["updated_at", "2022-12-05 22:55:05.884921"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gorczany-Schuster"], ["address", "470 Ondricka Ports, South Ollieside, WA 69334"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 22:55:05.888774"], ["updated_at", "2022-12-05 22:55:05.888774"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Nicolas-Keebler"], ["address", "Apt. 913 682 Gerlach Knolls, Rueckerport, VT 68510-2492"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/5.png"], ["created_at", "2022-12-05 22:55:05.893560"], ["updated_at", "2022-12-05 22:55:05.893560"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hills and Sons"], ["address", "Suite 657 2471 Reichel Lights, Reinafort, NY 96481-3488"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/12.png"], ["created_at", "2022-12-05 22:55:05.897612"], ["updated_at", "2022-12-05 22:55:05.897612"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Christiansen-Hane"], ["address", "Apt. 767 654 Geri Well, Reynoldston, SC 96163"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["created_at", "2022-12-05 22:55:05.901408"], ["updated_at", "2022-12-05 22:55:05.901408"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bradtke LLC"], ["address", "Apt. 477 924 Bartoletti Locks, Erdmanstad, WY 02169"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2022-12-05 22:55:05.905116"], ["updated_at", "2022-12-05 22:55:05.905116"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Wilkinson LLC"], ["address", "679 Kristine Forges, Trinidadbury, OK 49744"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2022-12-05 22:55:05.908929"], ["updated_at", "2022-12-05 22:55:05.908929"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Blanda-Hauck"], ["address", "3785 D'Amore Junctions, North Lasonyahaven, VT 27041"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 22:55:05.912593"], ["updated_at", "2022-12-05 22:55:05.912593"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221205224200)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224200"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20221205224219)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224219"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBeans (20221205224231)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "beans" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer NOT NULL, "origin" varchar, "name" varchar, "description" varchar, "image" varchar, "roast" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_486e57ebc1"
+FOREIGN KEY ("shop_id")
+  REFERENCES "shops" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_beans_on_shop_id" ON "beans" ("shop_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224231"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20221205224246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "bean_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fcf5f70be8"
+FOREIGN KEY ("bean_id")
+  REFERENCES "beans" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_bean_id" ON "favorites" ("bean_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224246"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-05 22:57:47.458115"], ["updated_at", "2022-12-05 22:57:47.458115"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Tonie Bins"], ["email", "darcy_gottlieb@considine.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/mollitiaquaedolor.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.792497"], ["updated_at", "2022-12-05 22:57:47.792497"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Catalina Hammes V"], ["email", "kerri@veum.co"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/quodoloreneque.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.797284"], ["updated_at", "2022-12-05 22:57:47.797284"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Wilbert Jast"], ["email", "marina@rosenbaum.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/nonetvoluptas.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.801210"], ["updated_at", "2022-12-05 22:57:47.801210"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Arlette Lind"], ["email", "forest@kemmer.co"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/similiquelaudantiumullam.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.804903"], ["updated_at", "2022-12-05 22:57:47.804903"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Garfield Howell"], ["email", "gene@stroman.info"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/quidemconsequaturet.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.809015"], ["updated_at", "2022-12-05 22:57:47.809015"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Irwin Hickle"], ["email", "latonya_hickle@gutkowski.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/etnonomnis.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.812830"], ["updated_at", "2022-12-05 22:57:47.812830"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Sen. Lindsey Murphy"], ["email", "deon_ferry@hilpert.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/explicaboetpossimus.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.816754"], ["updated_at", "2022-12-05 22:57:47.816754"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Cortez Crona"], ["email", "bradley@fay.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/debitisrepellendusvelit.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.820689"], ["updated_at", "2022-12-05 22:57:47.820689"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Miranda Walter"], ["email", "roosevelt.ratke@roberts.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/rerumsitnihil.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.824452"], ["updated_at", "2022-12-05 22:57:47.824452"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Dominick Stroman LLD"], ["email", "patrick@gorczany.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/estarchitectooptio.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 22:57:47.828076"], ["updated_at", "2022-12-05 22:57:47.828076"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hickle, Haley and Grant"], ["address", "Suite 225 18797 Shawn Groves, New Raisatown, ME 82597-9726"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/10.png"], ["created_at", "2022-12-05 22:57:47.838287"], ["updated_at", "2022-12-05 22:57:47.838287"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kuphal and Sons"], ["address", "28137 Angel Squares, West Shawn, UT 26800-5102"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/11.png"], ["created_at", "2022-12-05 22:57:47.842624"], ["updated_at", "2022-12-05 22:57:47.842624"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gusikowski, Murphy and Borer"], ["address", "5995 Jerde Highway, Denesikfort, NE 34352"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 22:57:47.846474"], ["updated_at", "2022-12-05 22:57:47.846474"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lebsack-Donnelly"], ["address", "Apt. 457 5993 Hermann Course, Jcstad, FL 75815-3015"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/2.png"], ["created_at", "2022-12-05 22:57:47.850344"], ["updated_at", "2022-12-05 22:57:47.850344"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Reilly, Collins and Dach"], ["address", "103 Darrick Corner, Cummeratastad, NV 36766"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/9.png"], ["created_at", "2022-12-05 22:57:47.854417"], ["updated_at", "2022-12-05 22:57:47.854417"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Yost, Wiegand and Rutherford"], ["address", "Suite 751 50829 Samantha Square, Geoffreychester, IL 38440-0234"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 22:57:47.858389"], ["updated_at", "2022-12-05 22:57:47.858389"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hills, Moore and Rolfson"], ["address", "Suite 468 1709 Lael Street, Port Arnette, KS 40300"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/11.png"], ["created_at", "2022-12-05 22:57:47.862712"], ["updated_at", "2022-12-05 22:57:47.862712"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Langworth, Collier and Smitham"], ["address", "14625 Alyson Lights, Noahshire, ME 53526"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2022-12-05 22:57:47.866617"], ["updated_at", "2022-12-05 22:57:47.866617"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Willms Inc"], ["address", "Suite 402 9290 Lesch Freeway, Lake Yukhaven, DE 33037-1304"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/12.png"], ["created_at", "2022-12-05 22:57:47.870505"], ["updated_at", "2022-12-05 22:57:47.870505"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mann-Medhurst"], ["address", "8583 Gaynelle Station, South Delindaside, MA 72746"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/4.png"], ["created_at", "2022-12-05 22:57:47.874348"], ["updated_at", "2022-12-05 22:57:47.874348"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (3.3ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "shops";
+DELETE FROM "beans";
+DELETE FROM "favorites"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mCACHE Shop Pluck (0.0ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Tyson Fadel"], ["email", "lita_parker@kub-runte.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/pariaturaliquamnon.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.429627"], ["updated_at", "2022-12-05 23:02:43.429627"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Lavina Pouros"], ["email", "fred@gottlieb.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/suscipitnamvoluptatem.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.434290"], ["updated_at", "2022-12-05 23:02:43.434290"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Vania Jacobs Sr."], ["email", "domingo@bogan-hane.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/aliasinventoreut.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.439184"], ["updated_at", "2022-12-05 23:02:43.439184"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "The Hon. Arden Rosenbaum"], ["email", "elena@maggio.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/optiovoluptasaut.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.446204"], ["updated_at", "2022-12-05 23:02:43.446204"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Leola Stanton"], ["email", "natashia@graham-hills.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/eaquealiaslibero.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.450516"], ["updated_at", "2022-12-05 23:02:43.450516"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Bertram Braun"], ["email", "melvina@corwin.co"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/quonisiquam.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.454410"], ["updated_at", "2022-12-05 23:02:43.454410"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Vicki Tremblay IV"], ["email", "quentin_morissette@jones-thompson.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/accusantiumdolorummaxime.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.458031"], ["updated_at", "2022-12-05 23:02:43.458031"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Msgr. Jerome Hills"], ["email", "hobert@roberts.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/odiolaborumatque.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.461812"], ["updated_at", "2022-12-05 23:02:43.461812"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Mrs. Fidel Schowalter"], ["email", "gene@runolfsson.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/veritatisquodet.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.466116"], ["updated_at", "2022-12-05 23:02:43.466116"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Kathline Grady DDS"], ["email", "anja@kuvalis.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/verorationedignissimos.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:02:43.471407"], ["updated_at", "2022-12-05 23:02:43.471407"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Spencer, Daniel and Spinka"], ["address", "73755 Casandra Lodge, New Lyndiafurt, GA 18444"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/11.png"], ["created_at", "2022-12-05 23:02:43.483114"], ["updated_at", "2022-12-05 23:02:43.483114"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lubowitz-Cremin"], ["address", "393 Alvin Glen, Deanbury, WV 63556-7877"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/9.png"], ["created_at", "2022-12-05 23:02:43.487485"], ["updated_at", "2022-12-05 23:02:43.487485"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Shanahan, Vandervort and Zemlak"], ["address", "Suite 837 7776 Stanton Glens, North Clelia, IA 93497-2492"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2022-12-05 23:02:43.491383"], ["updated_at", "2022-12-05 23:02:43.491383"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Collier, Schaden and Windler"], ["address", "Apt. 459 36141 Nicolas Stravenue, Deonfurt, IA 36978"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/2.png"], ["created_at", "2022-12-05 23:02:43.495343"], ["updated_at", "2022-12-05 23:02:43.495343"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Swift Group"], ["address", "871 Rath Islands, Marietteville, GA 05812-8654"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 23:02:43.499456"], ["updated_at", "2022-12-05 23:02:43.499456"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Corwin-Lockman"], ["address", "Suite 539 91245 Tessie Ford, Willmsside, AZ 79217-0204"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2022-12-05 23:02:43.503613"], ["updated_at", "2022-12-05 23:02:43.503613"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mohr Group"], ["address", "Suite 516 37529 Antoine Vista, Marileestad, ID 18562"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 23:02:43.508633"], ["updated_at", "2022-12-05 23:02:43.508633"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "McGlynn, Rohan and Morissette"], ["address", "4664 Corkery Ville, South Danuta, WY 56735"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 23:02:43.513580"], ["updated_at", "2022-12-05 23:02:43.513580"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Moore, Kulas and Altenwerth"], ["address", "734 Zenobia Wall, Gleichnerchester, AK 09948-1176"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/9.png"], ["created_at", "2022-12-05 23:02:43.517724"], ["updated_at", "2022-12-05 23:02:43.517724"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cummings, Krajcik and Wolff"], ["address", "340 Annelle Lake, O'Konberg, MO 47819"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/4.png"], ["created_at", "2022-12-05 23:02:43.521664"], ["updated_at", "2022-12-05 23:02:43.521664"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (4.1ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "shops";
+DELETE FROM "beans";
+DELETE FROM "favorites"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Ezequiel Mills"], ["email", "edda_jerde@becker.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/dignissimosaliquamomnis.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.255950"], ["updated_at", "2022-12-05 23:03:10.255950"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Christian Wintheiser"], ["email", "jannette_parker@rogahn-kassulke.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/voluptatesuntet.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.260791"], ["updated_at", "2022-12-05 23:03:10.260791"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Dr. Alfred Wiza"], ["email", "ailene_klein@botsford.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/suscipitvelitrerum.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.266547"], ["updated_at", "2022-12-05 23:03:10.266547"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Gordon Becker"], ["email", "kymberly@reichel-flatley.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/veliteiusea.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.286873"], ["updated_at", "2022-12-05 23:03:10.286873"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Delinda Smitham"], ["email", "lon@strosin.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/voluptatibusatid.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.291217"], ["updated_at", "2022-12-05 23:03:10.291217"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Esteban Conn"], ["email", "chi@ullrich-lowe.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/sittemporibusoptio.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.295057"], ["updated_at", "2022-12-05 23:03:10.295057"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Rhett Ratke"], ["email", "lawrence.wehner@paucek.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/quaedeseruntinventore.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.298390"], ["updated_at", "2022-12-05 23:03:10.298390"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Davida Homenick"], ["email", "talisha.king@carter.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/molestiaesedperspiciatis.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.302209"], ["updated_at", "2022-12-05 23:03:10.302209"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Julienne Gutkowski"], ["email", "elbert_lubowitz@hamill-luettgen.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/oditvelitfugiat.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.305674"], ["updated_at", "2022-12-05 23:03:10.305674"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Felix Stamm CPA"], ["email", "tabetha@glover.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/cupiditateinquod.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:03:10.309349"], ["updated_at", "2022-12-05 23:03:10.309349"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Feest, Dickens and O'Conner"], ["address", "Suite 685 837 Nan Point, Hesselfurt, NC 49058-0346"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 23:03:10.322685"], ["updated_at", "2022-12-05 23:03:10.322685"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Paucek, Schinner and Kunde"], ["address", "Apt. 389 499 Hermiston Place, Port Augustport, LA 47859-6268"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/5.png"], ["created_at", "2022-12-05 23:03:10.327162"], ["updated_at", "2022-12-05 23:03:10.327162"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Daugherty and Sons"], ["address", "Apt. 762 6031 Rudy Field, Lake Sandiechester, RI 62763-9791"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/4.png"], ["created_at", "2022-12-05 23:03:10.331156"], ["updated_at", "2022-12-05 23:03:10.331156"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jacobi-Koepp"], ["address", "805 Ignacio Courts, Reginahaven, FL 65399-0207"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/5.png"], ["created_at", "2022-12-05 23:03:10.336337"], ["updated_at", "2022-12-05 23:03:10.336337"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Heathcote and Sons"], ["address", "55638 Alease Key, West Catherintown, MO 92892"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2022-12-05 23:03:10.339987"], ["updated_at", "2022-12-05 23:03:10.339987"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gorczany-Ferry"], ["address", "Apt. 801 69358 Andreas Plains, Port Valentinland, MI 00209-2617"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["created_at", "2022-12-05 23:03:10.344062"], ["updated_at", "2022-12-05 23:03:10.344062"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Zulauf-Nader"], ["address", "Apt. 880 956 Alphonse Prairie, East Alonsoborough, OH 57952"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 23:03:10.348093"], ["updated_at", "2022-12-05 23:03:10.348093"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Balistreri-Weber"], ["address", "61540 McDermott Plaza, North Maeberg, IN 54763"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["created_at", "2022-12-05 23:03:10.352043"], ["updated_at", "2022-12-05 23:03:10.352043"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Thompson, Krajcik and Feeney"], ["address", "Suite 117 328 Lacy Park, East Eldridgefort, FL 91884-5397"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/12.png"], ["created_at", "2022-12-05 23:03:10.356111"], ["updated_at", "2022-12-05 23:03:10.356111"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hackett, Cruickshank and Heathcote"], ["address", "Suite 436 22971 Goyette Highway, Bruenmouth, CT 76240"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["created_at", "2022-12-05 23:03:10.360060"], ["updated_at", "2022-12-05 23:03:10.360060"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.2ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 23], ["origin", "Italy"], ["name", "Wake up honey"], ["description", "With a rich crema and an aromatic taste profile, the Super Crema blend offers a full body with notes of roasted hazelnut and brown sugar, and all the harmony of Italian espresso."], ["image", "https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&w=1000&q=80"], ["roast", "light"], ["created_at", "2022-12-05 23:03:10.393621"], ["updated_at", "2022-12-05 23:03:10.393621"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mBean Create (0.4ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 30], ["origin", "Brazil"], ["name", "Carnival Coffee"], ["description", "A classic and time-honored dark roast with notes of rich molasses and caramel thats perfect for making classic espresso drinks."], ["image", "https://images.unsplash.com/photo-1552346989-e069318e20a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["created_at", "2022-12-05 23:03:10.399126"], ["updated_at", "2022-12-05 23:03:10.399126"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 30], ["origin", "Australia"], ["name", "Kangaroo Kup"], ["description", "Our Espresso Roast is crafted with beans sourced from multiple regions—Latin America and Asia-Pacific. The blending of beans from varied regions results in unique flavor combinations."], ["image", "https://images.unsplash.com/photo-1629248989876-07129a68946d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["created_at", "2022-12-05 23:03:10.404764"], ["updated_at", "2022-12-05 23:03:10.404764"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mBean Create (0.5ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 26], ["origin", "USA"], ["name", "Freeeeedom"], ["description", "We source 100% arabica beans when crafting our coffee. Each coffee bean requires a unique balance of temperature and time to reach its individual peak of aroma, acidity, body and flavor."], ["image", "https://images.unsplash.com/photo-1513530176992-0cf39c4cbed4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["created_at", "2022-12-05 23:03:10.409817"], ["updated_at", "2022-12-05 23:03:10.409817"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mBean Create (0.4ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 24], ["origin", "South Africa"], ["name", "Nelsons Roast"], ["description", "More than a drink, a cup of Starbucks coffee is part of your coffee ritual. Its the start to a new day, or a reward at the end of a long one. Its a lazy weekend morning, or a reason to share a moment with friends. Whatever your moment, savor it."], ["image", "https://images.unsplash.com/photo-1524350876685-274059332603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "medium"], ["created_at", "2022-12-05 23:03:10.415684"], ["updated_at", "2022-12-05 23:03:10.415684"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 29], ["origin", "Spain"], ["name", "Corrida"], ["description", " The fresher the beans, the more satisfying the cup. Thats why our coffees are packed soon after roasting with a one-way freshness valve designed to deliver a high-quality experience at its flavorful best."], ["image", "https://images.unsplash.com/photo-1607681034540-2c46cc71896d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["created_at", "2022-12-05 23:03:10.420864"], ["updated_at", "2022-12-05 23:03:10.420864"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/shops" for 127.0.0.1 at 2022-12-05 16:11:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.56ms)
+Completed 200 OK in 49ms (Views: 30.3ms | ActiveRecord: 1.0ms | Allocations: 42205)
+
+
+Started GET "/beans" for 127.0.0.1 at 2022-12-05 16:11:43 -0700
+Processing by BeansController#index as HTML
+  [1m[36mBean Load (0.4ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.08ms)
+Completed 200 OK in 45ms (Views: 37.0ms | ActiveRecord: 1.8ms | Allocations: 33014)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:11:58 -0700
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1848)
+
+
+  
+NameError (uninitialized constant UsersController::Users):
+  
+app/controllers/users_controller.rb:3:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:12:09 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.56ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.7ms | Allocations: 22049)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fbf4f0ee280>):
+  
+app/controllers/users_controller.rb:3:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:12:27 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.31ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 4395)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fbf46ec6f00>):
+  
+app/controllers/users_controller.rb:3:in `index'
+Started GET "/shops" for 127.0.0.1 at 2022-12-05 16:12:31 -0700
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.42ms)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.6ms | Allocations: 5194)
+
+
+Started GET "/shop" for 127.0.0.1 at 2022-12-05 16:12:36 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/shop"):
+  
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:12:42 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.54ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 4394)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fbf4dc6a9a8>):
+  
+app/controllers/users_controller.rb:3:in `index'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (3.7ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "shops";
+DELETE FROM "beans";
+DELETE FROM "favorites"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "armandina"], ["email", "adalberto.mraz@larkin.info"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/vitaeetquia.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.445538"], ["updated_at", "2022-12-05 23:19:45.445538"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "major_mraz"], ["email", "reyes.kutch@hudson.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/nemoeosvoluptate.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.453875"], ["updated_at", "2022-12-05 23:19:45.453875"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "duane.feeney"], ["email", "christoper_abernathy@barrows.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/numquamcumqueharum.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.475899"], ["updated_at", "2022-12-05 23:19:45.475899"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "terrance"], ["email", "karey.quigley@botsford-rau.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/inventoreadullam.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.480389"], ["updated_at", "2022-12-05 23:19:45.480389"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "ellis_renner"], ["email", "ward_gleichner@cartwright-price.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/nostrumaliquidipsum.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.484393"], ["updated_at", "2022-12-05 23:19:45.484393"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "will.daniel"], ["email", "deandra_wolf@reilly-mertz.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/eumsedaccusamus.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.488067"], ["updated_at", "2022-12-05 23:19:45.488067"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "roosevelt"], ["email", "carl.hilll@schaden.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/inventorequieum.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.491780"], ["updated_at", "2022-12-05 23:19:45.491780"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "margarete"], ["email", "dewayne@rowe.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/oditquosautem.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.495884"], ["updated_at", "2022-12-05 23:19:45.495884"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "christiane"], ["email", "matt@dickens-kiehn.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/adipiscipossimusquas.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.500068"], ["updated_at", "2022-12-05 23:19:45.500068"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "stefan.torp"], ["email", "francisco@murphy-gulgowski.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/consequaturteneturpariatur.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:19:45.504364"], ["updated_at", "2022-12-05 23:19:45.504364"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Thiel and Sons"], ["address", "Apt. 261 15679 Reilly Place, Rayfordbury, HI 96923"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/12.png"], ["created_at", "2022-12-05 23:19:45.520707"], ["updated_at", "2022-12-05 23:19:45.520707"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hegmann-Steuber"], ["address", "Apt. 857 800 Lamar Ville, New Hilda, WY 29000"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["created_at", "2022-12-05 23:19:45.526751"], ["updated_at", "2022-12-05 23:19:45.526751"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Macejkovic, Breitenberg and Haley"], ["address", "30974 Schumm Roads, West Boyd, DE 48984-7329"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 23:19:45.532159"], ["updated_at", "2022-12-05 23:19:45.532159"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "D'Amore Inc"], ["address", "475 Truman Fords, South Jeffersonville, IN 13276-5030"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["created_at", "2022-12-05 23:19:45.536177"], ["updated_at", "2022-12-05 23:19:45.536177"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gulgowski-Schowalter"], ["address", "590 Hoeger Groves, Maribeltown, UT 67175-4577"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/2.png"], ["created_at", "2022-12-05 23:19:45.539858"], ["updated_at", "2022-12-05 23:19:45.539858"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Williamson, Kuhn and Will"], ["address", "Suite 440 131 Hagenes Prairie, Lake Colettemouth, CO 10061-6602"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 23:19:45.543609"], ["updated_at", "2022-12-05 23:19:45.543609"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Turner-Kub"], ["address", "6591 McLaughlin Stream, West Virgilview, TX 24359-1023"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2022-12-05 23:19:45.547965"], ["updated_at", "2022-12-05 23:19:45.547965"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pacocha, Lesch and Parker"], ["address", "2674 Luanna Burgs, Maoberg, CT 58979-7548"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/9.png"], ["created_at", "2022-12-05 23:19:45.552317"], ["updated_at", "2022-12-05 23:19:45.552317"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Wolff, Schultz and Johns"], ["address", "9416 Walsh Inlet, East Madeleine, KY 29467"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 23:19:45.556924"], ["updated_at", "2022-12-05 23:19:45.556924"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "McLaughlin-Ryan"], ["address", "433 Julio Lane, Lake Nakesha, CT 59210-2403"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["created_at", "2022-12-05 23:19:45.561101"], ["updated_at", "2022-12-05 23:19:45.561101"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.2ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mBean Create (0.4ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 34], ["origin", "Italy"], ["name", "Wake up honey"], ["description", "With a rich crema and an aromatic taste profile, the Super Crema blend offers a full body with notes of roasted hazelnut and brown sugar, and all the harmony of Italian espresso."], ["image", "https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&w=1000&q=80"], ["roast", "light"], ["created_at", "2022-12-05 23:19:45.589786"], ["updated_at", "2022-12-05 23:19:45.589786"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 40], ["origin", "Brazil"], ["name", "Carnival Coffee"], ["description", "A classic and time-honored dark roast with notes of rich molasses and caramel thats perfect for making classic espresso drinks."], ["image", "https://images.unsplash.com/photo-1552346989-e069318e20a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["created_at", "2022-12-05 23:19:45.596486"], ["updated_at", "2022-12-05 23:19:45.596486"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 32], ["origin", "Australia"], ["name", "Kangaroo Kup"], ["description", "Our Espresso Roast is crafted with beans sourced from multiple regions—Latin America and Asia-Pacific. The blending of beans from varied regions results in unique flavor combinations."], ["image", "https://images.unsplash.com/photo-1629248989876-07129a68946d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["created_at", "2022-12-05 23:19:45.602272"], ["updated_at", "2022-12-05 23:19:45.602272"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 38], ["origin", "USA"], ["name", "Freeeeedom"], ["description", "We source 100% arabica beans when crafting our coffee. Each coffee bean requires a unique balance of temperature and time to reach its individual peak of aroma, acidity, body and flavor."], ["image", "https://images.unsplash.com/photo-1513530176992-0cf39c4cbed4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["created_at", "2022-12-05 23:19:45.607496"], ["updated_at", "2022-12-05 23:19:45.607496"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 32], ["origin", "South Africa"], ["name", "Nelsons Roast"], ["description", "More than a drink, a cup of Starbucks coffee is part of your coffee ritual. Its the start to a new day, or a reward at the end of a long one. Its a lazy weekend morning, or a reason to share a moment with friends. Whatever your moment, savor it."], ["image", "https://images.unsplash.com/photo-1524350876685-274059332603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "medium"], ["created_at", "2022-12-05 23:19:45.612703"], ["updated_at", "2022-12-05 23:19:45.612703"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 38], ["origin", "Spain"], ["name", "Corrida"], ["description", " The fresher the beans, the more satisfying the cup. Thats why our coffees are packed soon after roasting with a one-way freshness valve designed to deliver a high-quality experience at its flavorful best."], ["image", "https://images.unsplash.com/photo-1607681034540-2c46cc71896d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["created_at", "2022-12-05 23:19:45.617955"], ["updated_at", "2022-12-05 23:19:45.617955"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221205224200)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224200"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20221205224219)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224219"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBeans (20221205224231)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "beans" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer NOT NULL, "origin" varchar, "name" varchar, "description" varchar, "image" varchar, "roast" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_486e57ebc1"
+FOREIGN KEY ("shop_id")
+  REFERENCES "shops" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_beans_on_shop_id" ON "beans" ("shop_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224231"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20221205224246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "bean_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fcf5f70be8"
+FOREIGN KEY ("bean_id")
+  REFERENCES "beans" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_bean_id" ON "favorites" ("bean_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224246"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-05 23:20:30.668008"], ["updated_at", "2022-12-05 23:20:30.668008"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "ligia.wehner"], ["email", "kaye@hoeger-carter.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/voluptasomnisipsum.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:30.977217"], ["updated_at", "2022-12-05 23:20:30.977217"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "cristopher"], ["email", "saul@emard-rosenbaum.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/adipisciteneturvoluptate.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:30.982589"], ["updated_at", "2022-12-05 23:20:30.982589"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "clare.brakus"], ["email", "lyndon@sanford-schroeder.biz"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/consecteturrepellatsed.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:30.986508"], ["updated_at", "2022-12-05 23:20:30.986508"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "anibal_mayer"], ["email", "junior_rau@cummings-greenholt.com"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/etodiodistinctio.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:30.991092"], ["updated_at", "2022-12-05 23:20:30.991092"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "margit_stark"], ["email", "fabiola@jacobson.io"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/velquasbeatae.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:30.995344"], ["updated_at", "2022-12-05 23:20:30.995344"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "earl.murazik"], ["email", "lean@hoppe.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/rerumessereiciendis.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:30.999926"], ["updated_at", "2022-12-05 23:20:30.999926"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "orville_koch"], ["email", "dee.shields@runte.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/velitsequilibero.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:31.004558"], ["updated_at", "2022-12-05 23:20:31.004558"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "marlon.ohara"], ["email", "marlyn@cartwright.org"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/veleamaxime.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:31.009137"], ["updated_at", "2022-12-05 23:20:31.009137"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "wilson_weber"], ["email", "wes@kub-adams.net"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/voluptatemnequenatus.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:31.013103"], ["updated_at", "2022-12-05 23:20:31.013103"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "aron.mertz"], ["email", "cami.roberts@dickinson.name"], ["password_digest", "[FILTERED]"], ["img", "https://robohash.org/commodieoset.jpg?size=50x50&set=set1"], ["created_at", "2022-12-05 23:20:31.017342"], ["updated_at", "2022-12-05 23:20:31.017342"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mosciski Group"], ["address", "30441 Benjamin Fall, Wisokymouth, NM 57808"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2022-12-05 23:20:31.032036"], ["updated_at", "2022-12-05 23:20:31.032036"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Christiansen, Veum and Streich"], ["address", "721 Claud Drives, South Al, OH 52009-2995"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/10.png"], ["created_at", "2022-12-05 23:20:31.036364"], ["updated_at", "2022-12-05 23:20:31.036364"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hamill LLC"], ["address", "408 Sonny Drive, Ivantown, VA 51791-8324"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/12.png"], ["created_at", "2022-12-05 23:20:31.040031"], ["updated_at", "2022-12-05 23:20:31.040031"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Fisher Inc"], ["address", "Suite 238 5946 Mickey Square, Durganborough, MA 91227"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/6.png"], ["created_at", "2022-12-05 23:20:31.043925"], ["updated_at", "2022-12-05 23:20:31.043925"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Flatley, Russel and Pfeffer"], ["address", "7826 Kulas Heights, South Marco, OR 77872"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["created_at", "2022-12-05 23:20:31.048292"], ["updated_at", "2022-12-05 23:20:31.048292"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Casper-Pacocha"], ["address", "4320 Halvorson Square, West Bud, IA 17829"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["created_at", "2022-12-05 23:20:31.051924"], ["updated_at", "2022-12-05 23:20:31.051924"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hamill Inc"], ["address", "Apt. 553 242 Curt Flats, Port Michalton, MA 06130-3580"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/10.png"], ["created_at", "2022-12-05 23:20:31.056041"], ["updated_at", "2022-12-05 23:20:31.056041"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "McDermott-Hauck"], ["address", "376 Arleen Harbors, Port Tylerland, WV 75661"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["created_at", "2022-12-05 23:20:31.060314"], ["updated_at", "2022-12-05 23:20:31.060314"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Daugherty-Reinger"], ["address", "30089 Tromp Way, East Pennieberg, KS 27752-4108"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/5.png"], ["created_at", "2022-12-05 23:20:31.063918"], ["updated_at", "2022-12-05 23:20:31.063918"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "VonRueden LLC"], ["address", "Suite 331 743 Fae Roads, Augustchester, NJ 00329-5474"], ["img", "https://pigment.github.io/fake-logos/logos/medium/color/2.png"], ["created_at", "2022-12-05 23:20:31.069269"], ["updated_at", "2022-12-05 23:20:31.069269"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.2ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBean Create (0.4ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 2], ["origin", "Italy"], ["name", "Wake up honey"], ["description", "With a rich crema and an aromatic taste profile, the Super Crema blend offers a full body with notes of roasted hazelnut and brown sugar, and all the harmony of Italian espresso."], ["image", "https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&w=1000&q=80"], ["roast", "light"], ["created_at", "2022-12-05 23:20:31.098989"], ["updated_at", "2022-12-05 23:20:31.098989"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 10], ["origin", "Brazil"], ["name", "Carnival Coffee"], ["description", "A classic and time-honored dark roast with notes of rich molasses and caramel thats perfect for making classic espresso drinks."], ["image", "https://images.unsplash.com/photo-1552346989-e069318e20a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["created_at", "2022-12-05 23:20:31.104263"], ["updated_at", "2022-12-05 23:20:31.104263"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 3], ["origin", "Australia"], ["name", "Kangaroo Kup"], ["description", "Our Espresso Roast is crafted with beans sourced from multiple regions—Latin America and Asia-Pacific. The blending of beans from varied regions results in unique flavor combinations."], ["image", "https://images.unsplash.com/photo-1629248989876-07129a68946d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["created_at", "2022-12-05 23:20:31.109260"], ["updated_at", "2022-12-05 23:20:31.109260"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.2ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 10], ["origin", "USA"], ["name", "Freeeeedom"], ["description", "We source 100% arabica beans when crafting our coffee. Each coffee bean requires a unique balance of temperature and time to reach its individual peak of aroma, acidity, body and flavor."], ["image", "https://images.unsplash.com/photo-1513530176992-0cf39c4cbed4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["created_at", "2022-12-05 23:20:31.114712"], ["updated_at", "2022-12-05 23:20:31.114712"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 8], ["origin", "South Africa"], ["name", "Nelsons Roast"], ["description", "More than a drink, a cup of Starbucks coffee is part of your coffee ritual. Its the start to a new day, or a reward at the end of a long one. Its a lazy weekend morning, or a reason to share a moment with friends. Whatever your moment, savor it."], ["image", "https://images.unsplash.com/photo-1524350876685-274059332603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "medium"], ["created_at", "2022-12-05 23:20:31.119666"], ["updated_at", "2022-12-05 23:20:31.119666"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 7], ["origin", "Spain"], ["name", "Corrida"], ["description", " The fresher the beans, the more satisfying the cup. Thats why our coffees are packed soon after roasting with a one-way freshness valve designed to deliver a high-quality experience at its flavorful best."], ["image", "https://images.unsplash.com/photo-1607681034540-2c46cc71896d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["created_at", "2022-12-05 23:20:31.124793"], ["updated_at", "2022-12-05 23:20:31.124793"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:20:50 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.12ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.5ms | Allocations: 8847)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fbf4dd72e68>):
+  
+app/controllers/users_controller.rb:3:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:20:52 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.35ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 4412)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fbf45bc76e8>):
+  
+app/controllers/users_controller.rb:3:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:20:53 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.43ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 4394)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fbf4dc31ea0>):
+  
+app/controllers/users_controller.rb:3:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:24:33 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.17ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.1ms | Allocations: 9287)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fbf45d95bf0>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:24:35 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.49ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 4394)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fbf4cd0f9b8>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:24:58 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.11ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.8ms | Allocations: 44703)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fe74d4f85a8>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:25:01 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.41ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 4412)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fe746d29058>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:25:19 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.28ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.7ms | Allocations: 44703)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fe73d96a218>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:25:20 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.47ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 4412)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fe73baefe50>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:25:51 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.11ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.8ms | Allocations: 44703)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fe20cd17450>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:25:52 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.3ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms | Allocations: 4412)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fe207846d68>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:25:55 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.68ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms | Allocations: 4412)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fe20e46b1d8>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:25:56 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.57ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms | Allocations: 4412)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fe206d06480>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:26:58 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.52ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.1ms | Allocations: 44703)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fa98f5b8fc0>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:26:59 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.32ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 4412)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fa98f701ff8>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:27:02 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.09ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms | Allocations: 4412)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fa98a26c948>):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users" for 127.0.0.1 at 2022-12-05 16:29:25 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.45ms)
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.2ms | Allocations: 7026)
+
+
