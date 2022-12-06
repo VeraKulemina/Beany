@@ -21,7 +21,10 @@ function NavBar({ user, setUser }) {
         ) : (
           <>
             <Link to="/signup">Signup</Link>
+            <Link to="/favorites">My Favorites</Link>
+            <Link to="/stores">Stores</Link>
             <Link to="/login">Login</Link>
+            <Link to="/addition">Add</Link>
           </>
         )}
       </div>

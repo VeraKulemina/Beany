@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
+import NavBar from "./NavBar.js";
 import SignUp from "./SignUp.js";
 import Login from "./Login.js";
-import NavBar from "./NavBar.js";
-import Home from "./Home.js";
+import Landing from "./Landing.js";
+import Store from "./Store.js";
+import Addition from "./Addition.js";
+import Favorites from "./Favorites.js";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,19 +26,29 @@ function App() {
         {user ? (
           <Switch>
             <Route path="/">
-              <Home />
+              <Landing />
             </Route>
           </Switch>
         ) : (
           <Switch>
+            
             <Route path="/signup">
               <SignUp setUser={setUser} />
+            </Route>
+            <Route path="/favorites">
+              <Favorites setUser={setUser} />
+            </Route>
+            <Route path="/stores">
+              <Store setUser={setUser} />
             </Route>
             <Route path="/login">
               <Login setUser={setUser} />
             </Route>
+            <Route path="/addition">
+              <Addition setUser={setUser} />
+            </Route>
             <Route path="/">
-              <Home />
+              <Landing />
             </Route>
           </Switch>
         )}
