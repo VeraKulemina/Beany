@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 
    before_action :authorize, only: [:show]
 
+   def index
+    render json: User.all
+   end
+
   def create
     user = User.create(user_params)
     if user.valid?
@@ -24,6 +28,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:username, :password, :password_confirmation)
+    params.permit(:username, :password, :password_confirmation, :img, :email)
   end
 end

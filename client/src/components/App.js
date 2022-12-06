@@ -23,7 +23,7 @@ function App() {
         {user ? (
           <Switch>
             <Route path="/">
-              <Home />
+              <Home user={user}/>
             </Route>
           </Switch>
         ) : (
@@ -43,5 +43,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;
