@@ -1,4 +1,4 @@
-function Home({ user }) {
+function Landing({ user }) {
     if (user) {
       return <h1>Welcome, {user.username}!</h1>;
     } else {
@@ -6,4 +6,4 @@ function Home({ user }) {
     }
   }
   
-  export default Home;
+  export default Landing;

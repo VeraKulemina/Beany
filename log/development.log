@@ -1663,3 +1663,727 @@ Filter chain halted as :authorize rendered or redirected
 Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 190)
 
 
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:13:24 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 1171)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 09:14:29 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Andy", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"Andy"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007faed4d1bdb8>, params: {"username"=>"Andy", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"Andy"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Andy"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 16:14:29.673533"], ["updated_at", "2022-12-06 16:14:29.673533"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 278ms (ActiveRecord: 3.1ms | Allocations: 36731)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:8:in `create'
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 09:19:26 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 09:19:26 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:19:26 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 191)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:19:32 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 192)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 09:19:36 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Beany", "password"=>"[FILTERED]", "session"=>{"username"=>"Beany", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Beany"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 0.3ms | Allocations: 1235)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 09:19:50 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007faecfe90748>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 16:19:50.906099"], ["updated_at", "2022-12-06 16:19:50.906099"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 2.3ms | Allocations: 1938)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:8:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:22:10 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:22:18 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 09:22:24 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007faed0a1d5e8>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 16:22:25.076712"], ["updated_at", "2022-12-06 16:22:25.076712"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 259ms (ActiveRecord: 2.2ms | Allocations: 1936)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:8:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:22:50 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 191)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 09:22:55 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:22:55 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:23:01 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 09:23:10 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Chuck", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"Chuck"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007faed6e2d948>, params: {"username"=>"Chuck", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"Chuck"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Chuck"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 16:23:10.821554"], ["updated_at", "2022-12-06 16:23:10.821554"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 2.2ms | Allocations: 1920)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:8:in `create'
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 09:23:46 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Chuck", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"Chuck"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007faed6e84978>, params: {"username"=>"Chuck", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"Chuck"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Chuck"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 16:23:46.534476"], ["updated_at", "2022-12-06 16:23:46.534476"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 1.2ms | Allocations: 1924)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:8:in `create'
+Started GET "/" for ::1 at 2022-12-06 09:25:48 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/verak/.rvm/rubies/ruby-2.7.4/lib/ruby/gems/2.7.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/verak/.rvm/rubies/ruby-2.7.4/lib/ruby/gems/2.7.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.8ms | Allocations: 665)
+Completed 200 OK in 18ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 5753)
+
+
+Started GET "/users/1" for ::1 at 2022-12-06 09:25:53 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users/1"):
+  
+Started GET "/users/me" for ::1 at 2022-12-06 09:26:36 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users/me"):
+  
+Started GET "/users" for ::1 at 2022-12-06 09:29:47 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.15ms)
+Completed 200 OK in 19ms (Views: 15.4ms | ActiveRecord: 0.6ms | Allocations: 9170)
+
+
+Started GET "/users/me" for ::1 at 2022-12-06 09:30:12 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users/me"):
+  
+Started GET "/me" for ::1 at 2022-12-06 09:30:28 -0700
+Processing by UsersController#show as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 272)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 09:30:36 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Chuck", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"Chuck"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007faed63d1058>, params: {"username"=>"Chuck", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"Chuck"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Chuck"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 16:30:36.559210"], ["updated_at", "2022-12-06 16:30:36.559210"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 267ms (ActiveRecord: 2.1ms | Allocations: 2054)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:12:in `create'
+Started GET "/me" for ::1 at 2022-12-06 09:30:38 -0700
+Processing by UsersController#show as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 182)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 09:33:07 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Chuck", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"Chuck"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007faed6162c90>, params: {"username"=>"Chuck", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"Chuck"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Chuck"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 16:33:07.634870"], ["updated_at", "2022-12-06 16:33:07.634870"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 261ms (ActiveRecord: 3.3ms | Allocations: 3562)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:12:in `create'
+Started GET "/me" for ::1 at 2022-12-06 09:33:11 -0700
+Processing by UsersController#show as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 279)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:34:47 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.9ms | Allocations: 305)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 09:35:31 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007ff69526b950>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 16:35:32.215050"], ["updated_at", "2022-12-06 16:35:32.215050"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 287ms (ActiveRecord: 2.9ms | Allocations: 38563)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:12:in `create'
+Started GET "/me" for ::1 at 2022-12-06 09:41:28 -0700
+Processing by UsersController#show as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.7ms | Allocations: 589)
+
+
+Started GET "/me" for ::1 at 2022-12-06 09:41:30 -0700
+Processing by UsersController#show as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | Allocations: 184)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:42:13 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | Allocations: 191)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:45:52 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | Allocations: 192)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 09:47:29 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.9ms | Allocations: 192)
+
+
+Started GET "/users" for ::1 at 2022-12-06 09:47:55 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.98ms)
+Completed 200 OK in 29ms (Views: 15.1ms | ActiveRecord: 1.1ms | Allocations: 10596)
+
+
+Started GET "/beans" for ::1 at 2022-12-06 09:48:27 -0700
+Processing by BeansController#index as HTML
+  [1m[36mBean Load (0.2ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.24ms)
+Completed 200 OK in 60ms (Views: 51.1ms | ActiveRecord: 2.2ms | Allocations: 47978)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 09:58:08 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007ff694d01528>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 16:58:09.055448"], ["updated_at", "2022-12-06 16:58:09.055448"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 262ms (ActiveRecord: 2.2ms | Allocations: 2189)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:12:in `create'
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 10:00:31 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Stephen", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"Stephen"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007ff694db8340>, params: {"username"=>"Stephen", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"Stephen"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Stephen"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 17:00:31.983692"], ["updated_at", "2022-12-06 17:00:31.983692"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 1.9ms | Allocations: 1937)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:12:in `create'
+Started GET "/me" for ::1 at 2022-12-06 10:03:30 -0700
+Processing by UsersController#show as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 182)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 10:16:26 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007ffdde3a61a8>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 17:16:26.920193"], ["updated_at", "2022-12-06 17:16:26.920193"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 201 Created in 302ms (Views: 9.4ms | ActiveRecord: 2.7ms | Allocations: 40646)
+
+
+Started GET "/me" for ::1 at 2022-12-06 10:16:37 -0700
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 1552)
+
+
+Started GET "/me" for ::1 at 2022-12-06 10:16:53 -0700
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 881)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 10:17:29 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 201 Created in 268ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 1024)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 10:17:39 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 10:17:43 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 201 Created in 265ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 901)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 10:17:49 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 226)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 10:17:50 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 201 Created in 261ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 899)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 10:17:54 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 224)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 10:18:10 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Andy", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"Andy"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007ffde60a2ad0>, params: {"username"=>"Andy", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"Andy"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Andy"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 17:18:10.355121"], ["updated_at", "2022-12-06 17:18:10.355121"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 201 Created in 266ms (Views: 0.7ms | ActiveRecord: 1.8ms | Allocations: 2301)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 10:20:33 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 852)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 10:20:38 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 230)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 10:20:53 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 201 Created in 266ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 882)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 10:20:58 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 232)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 10:21:06 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007ffde7174390>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 17:21:06.936220"], ["updated_at", "2022-12-06 17:21:06.936220"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 201 Created in 263ms (Views: 0.7ms | ActiveRecord: 1.8ms | Allocations: 2279)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 10:30:09 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 1006)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 10:30:10 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 858)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 10:32:05 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 862)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 10:32:06 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 234)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 10:32:14 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007ffde0301638>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 17:32:14.970898"], ["updated_at", "2022-12-06 17:32:14.970898"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 201 Created in 259ms (Views: 0.6ms | ActiveRecord: 2.1ms | Allocations: 2275)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 10:32:20 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 236)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 10:32:25 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 201 Created in 254ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 919)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 10:33:11 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 230)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 10:33:26 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007ffddfb27bb0>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 17:33:26.993799"], ["updated_at", "2022-12-06 17:33:26.993799"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 201 Created in 260ms (Views: 0.8ms | ActiveRecord: 3.7ms | Allocations: 2275)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:00:06 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 707)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:07:42 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | Allocations: 245)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-06 11:07:50 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"amclean0311", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"amclean0311"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f9e1b764178>, params: {"username"=>"amclean0311", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"amclean0311"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "amclean0311"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 18:07:50.999065"], ["updated_at", "2022-12-06 18:07:50.999065"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 201 Created in 245ms (Views: 11.3ms | ActiveRecord: 2.2ms | Allocations: 38667)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 11:08:04 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 195)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 11:08:47 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Andy", "password"=>"[FILTERED]", "session"=>{"username"=>"Andy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Andy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 401 Unauthorized in 220ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 2660)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 11:08:49 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Andy", "password"=>"[FILTERED]", "session"=>{"username"=>"Andy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Andy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 201 Created in 211ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 829)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:09:17 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 959)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 11:09:21 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 170)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 11:10:21 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Andy", "password"=>"[FILTERED]", "session"=>{"username"=>"Andy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Andy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 201 Created in 213ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 841)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:11:21 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 802)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 11:11:45 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:14:25 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 326)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:14:29 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:14:31 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:14:47 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:14:48 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 326)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:14:50 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 326)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:14:52 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 324)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:14:54 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 326)
+
+

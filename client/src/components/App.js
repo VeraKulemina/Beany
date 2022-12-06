@@ -26,7 +26,7 @@ function App() {
         {user ? (
           <Switch>
             <Route path="/">
-              <Landing />
+              <Landing user={user}/>
             </Route>
           </Switch>
         ) : (
@@ -35,26 +35,33 @@ function App() {
             <Route path="/signup">
               <SignUp setUser={setUser} />
             </Route>
+
             <Route path="/favorites">
               <Favorites setUser={setUser} />
             </Route>
+
             <Route path="/stores">
               <Store setUser={setUser} />
             </Route>
+
             <Route path="/login">
               <Login setUser={setUser} />
             </Route>
+
             <Route path="/addition">
               <Addition setUser={setUser} />
             </Route>
+
             <Route path="/">
               <Landing />
             </Route>
+            
           </Switch>
         )}
       </main>
     </>
   );
 }
+
 
 export default App;
