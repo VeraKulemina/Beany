@@ -7,6 +7,7 @@ import Landing from "./Landing.js";
 import Store from "./Store.js";
 import Addition from "./Addition.js";
 import Favorites from "./Favorites.js";
+import Beans from "./Beans.js";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,8 +26,8 @@ function App() {
       <main>
         {user ? (
           <Switch>
-            <Route path="/">
-              <Landing user={user}/>
+            <Route path="/beans">
+              <Beans user={user}/>
             </Route>
           </Switch>
         ) : (
