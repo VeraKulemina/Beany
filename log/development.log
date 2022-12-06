@@ -2478,3 +2478,371 @@ Processing by SessionsController#create as */*
 Completed 201 Created in 215ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 823)
 
 
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:41:15 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 75ms (Views: 10.2ms | ActiveRecord: 1.5ms | Allocations: 41884)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 11:41:19 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 183)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 11:41:52 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Andy ", "password"=>"[FILTERED]", "session"=>{"username"=>"Andy ", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Andy "], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 401 Unauthorized in 11ms (Views: 8.6ms | ActiveRecord: 0.6ms | Allocations: 2389)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 11:41:54 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Andy ", "password"=>"[FILTERED]", "session"=>{"username"=>"Andy ", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Andy "], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 604)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:42:01 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 329)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 11:42:09 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Andy", "password"=>"[FILTERED]", "session"=>{"username"=>"Andy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Andy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 201 Created in 211ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 841)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:44:42 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 809)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 11:44:54 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 182)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:48:15 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:48:16 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 330)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:48:19 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 330)
+
+
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:48:48 -0700
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:48:48 -0700
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-06 11:48:48 -0700
+Started GET "/babel/core/lib/transform.js" for 127.0.0.1 at 2022-12-06 11:48:48 -0700
+Started GET "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js" for 127.0.0.1 at 2022-12-06 11:48:48 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transform.js"):
+  
+Started GET "/babel/core/lib/transformation/index.js" for 127.0.0.1 at 2022-12-06 11:48:49 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+Started GET "/babel/core/lib/transform.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+Started GET "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+Started GET "/babel/core/lib/transformation/index.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transform.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+Started GET "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+Started GET "/babel/core/lib/transform.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/core/lib/transformation/index.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-06 11:49:13 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transform.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:51:43 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | Allocations: 322)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:52:06 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:52:07 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | Allocations: 328)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:52:10 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | Allocations: 336)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:53:54 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | Allocations: 334)
+
+
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:54:58 -0700
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-06 11:54:58 -0700
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:54:58 -0700
+Started GET "/babel/core/lib/transform.js" for 127.0.0.1 at 2022-12-06 11:54:58 -0700
+Started GET "/babel/core/lib/transformation/index.js" for 127.0.0.1 at 2022-12-06 11:54:58 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transform.js"):
+  
+Started GET "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js" for 127.0.0.1 at 2022-12-06 11:54:58 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+Started GET "/babel/core/lib/transform.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+Started GET "/babel/core/lib/transformation/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+Started GET "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transform.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/Users/andrewmclean/Development/Code/phase-4/Project/Beany/client/node_modules/gensync/index.js"):
+  
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-06 11:55:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:57:08 -0700
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:57:08 -0700
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-06 11:57:08 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:57:08 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:57:08 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-06 11:57:08 -0700
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-06 11:57:08 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:57:08 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | Allocations: 328)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:57:59 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | Allocations: 330)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:58:17 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | Allocations: 326)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-06 11:58:35 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Andy", "password"=>"[FILTERED]", "session"=>{"username"=>"Andy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Andy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 201 Created in 214ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 980)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 11:59:38 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 828)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 12:42:29 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.9ms | Allocations: 944)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 12:42:35 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 794)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-06 12:42:38 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-06 12:42:45 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 322)
+
+

@@ -8,6 +8,7 @@ import Store from "./Store.js";
 import Addition from "./Addition.js";
 import Favorites from "./Favorites.js";
 import Beans from "./Beans.js";
+//TEST
 
 function App() {
   const [user, setUser] = useState(null);
