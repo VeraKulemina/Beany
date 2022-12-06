@@ -25,13 +25,12 @@ function App() {
     <>
       <NavBar user={user} setUser={setUser} />
       <main>
-        {user ? (
+        {/* {user ? (
           <Switch>
             <Route path="/beans">
               <Beans user={user}/>
             </Route>
-          </Switch>
-        ) : (
+          </Switch> */}
           <Switch>
             
             <Route path="/signup">
