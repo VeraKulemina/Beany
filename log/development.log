@@ -1224,3 +1224,442 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.2ms | Allocations: 7026)
 
 
+Started GET "/shops" for ::1 at 2022-12-05 17:30:34 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.45ms)
+Completed 200 OK in 43ms (Views: 24.9ms | ActiveRecord: 1.0ms | Allocations: 40586)
+
+
+Started GET "/shops" for ::1 at 2022-12-05 17:37:31 -0700
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.27ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.6ms | Allocations: 2130)
+
+
+Started GET "/ws" for ::1 at 2022-12-05 17:39:13 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-12-05 17:39:16 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-12-05 17:39:21 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-12-05 17:39:30 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-12-05 17:39:47 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-12-05 17:40:20 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-12-05 17:41:25 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-05 17:42:36 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 664)
+
+
+Started GET "/ws" for ::1 at 2022-12-05 18:00:53 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-05 18:01:33 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.7ms | Allocations: 192)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-05 18:02:55 -0700
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-05 18:02:55 -0700
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-05 18:02:55 -0700
+Started GET "/babel/core/lib/transformation/index.js" for 127.0.0.1 at 2022-12-05 18:02:55 -0700
+Started GET "/Users/verak/Development/code/phase-4/Beany1/client/node_modules/gensync/index.js" for 127.0.0.1 at 2022-12-05 18:02:55 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+Started GET "/babel/core/lib/transform.js" for 127.0.0.1 at 2022-12-05 18:02:55 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Users/verak/Development/code/phase-4/Beany1/client/node_modules/gensync/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transform.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-05 18:02:55 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | Allocations: 191)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-05 18:02:59 -0700
+Started GET "/babel/core/lib/transform.js" for 127.0.0.1 at 2022-12-05 18:02:59 -0700
+Started GET "/babel/core/lib/transformation/normalize-file.js" for 127.0.0.1 at 2022-12-05 18:02:59 -0700
+Started GET "/babel/core/lib/transformation/index.js" for 127.0.0.1 at 2022-12-05 18:02:59 -0700
+Started GET "/Users/verak/Development/code/phase-4/Beany1/client/node_modules/gensync/index.js" for 127.0.0.1 at 2022-12-05 18:02:59 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transform.js"):
+  
+Started GET "/babel/core/lib/parser/index.js" for 127.0.0.1 at 2022-12-05 18:02:59 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/normalize-file.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/transformation/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Users/verak/Development/code/phase-4/Beany1/client/node_modules/gensync/index.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/babel/core/lib/parser/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-05 18:04:11 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.5ms | Allocations: 190)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-05 18:04:14 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"vera", "password"=>"[FILTERED]", "session"=>{"username"=>"vera", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vera"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 401 Unauthorized in 37ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 5379)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-05 18:04:17 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"vera", "password"=>"[FILTERED]", "session"=>{"username"=>"vera", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vera"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 594)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-05 18:04:18 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"vera", "password"=>"[FILTERED]", "session"=>{"username"=>"vera", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vera"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 401 Unauthorized in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-05 18:04:22 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"vera", "password"=>"[FILTERED]", "session"=>{"username"=>"vera", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vera"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 597)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-05 18:04:34 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fbbf76a17a0>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (6.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 01:04:34.592478"], ["updated_at", "2022-12-06 01:04:34.592478"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 290ms (ActiveRecord: 8.0ms | Allocations: 17964)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:8:in `create'
+Started POST "/signup" for 127.0.0.1 at 2022-12-05 18:04:36 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"VeraKulemina"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fbbf4e09888>, params: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"VeraKulemina"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "VeraKulemina"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 01:04:36.342164"], ["updated_at", "2022-12-06 01:04:36.342164"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 264ms (ActiveRecord: 1.5ms | Allocations: 1923)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2022-12-05 18:04:40 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 0.2ms | Allocations: 560)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/login" for 127.0.0.1 at 2022-12-05 18:04:41 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 263ms (ActiveRecord: 0.1ms | Allocations: 547)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/login" for 127.0.0.1 at 2022-12-05 18:04:48 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 272ms (ActiveRecord: 0.2ms | Allocations: 546)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started GET "/ws" for ::1 at 2022-12-05 18:05:31 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-12-05 18:15:44 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-05 19:05:58 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:05:59 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | Allocations: 190)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:06:22 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | Allocations: 190)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-05 19:06:23 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 259ms (ActiveRecord: 0.4ms | Allocations: 695)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-05 19:06:54 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-05 19:07:35 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-05 19:07:35 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-05 19:07:35 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-05 19:07:41 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:08:47 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:08:51 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-05 19:08:56 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"VeraKulemina", "password"=>"[FILTERED]", "session"=>{"username"=>"VeraKulemina", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "VeraKulemina"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 0.1ms | Allocations: 546)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/signup" for 127.0.0.1 at 2022-12-05 19:11:50 -0700
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Beany", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"Beany"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fbbf4f92308>, params: {"username"=>"Beany", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"Beany"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "img", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Beany"], ["email", nil], ["password_digest", "[FILTERED]"], ["img", nil], ["created_at", "2022-12-06 02:11:50.682128"], ["updated_at", "2022-12-06 02:11:50.682128"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 259ms (ActiveRecord: 2.1ms | Allocations: 1924)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/users_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2022-12-05 19:12:09 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Beany", "password"=>"[FILTERED]", "session"=>{"username"=>"Beany", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Beany"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 0.1ms | Allocations: 546)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/login" for 127.0.0.1 at 2022-12-05 19:13:08 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Beany", "password"=>"[FILTERED]", "session"=>{"username"=>"Beany", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Beany"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 0.1ms | Allocations: 546)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/login" for 127.0.0.1 at 2022-12-05 19:13:15 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Beany", "password"=>"[FILTERED]", "session"=>{"username"=>"Beany", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Beany"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 271ms (ActiveRecord: 0.2ms | Allocations: 546)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-05 19:16:13 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:16:43 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:16:53 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-05 19:17:03 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Beany", "password"=>"[FILTERED]", "session"=>{"username"=>"Beany", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Beany"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 253ms (ActiveRecord: 0.1ms | Allocations: 546)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:17:31 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-05 19:17:32 -0700
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Beany", "password"=>"[FILTERED]", "session"=>{"username"=>"Beany", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Beany"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 257ms (ActiveRecord: 0.1ms | Allocations: 547)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:17:56 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:18:03 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-05 19:21:13 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
