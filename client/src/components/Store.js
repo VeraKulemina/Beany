@@ -6,25 +6,26 @@ function Store(){
     const [stores, setStores] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/shops')
+        fetch('/shops')
             .then((r) => r.json())
             .then(store => setStores(store))
     }, [])
 
     const storeCard = stores.map((store) => (
         <StoreCard
+            key = {store.id}
             id = {store.id}
             name = {store.name}
-            img = {store.image}
+            img = {store.img}
             address = {store.address}
         />
     ))
 
 
     return(
-        <div>
-            {storeCard}
-        </div>    
+        <>
+            <ul>{storeCard}</ul>
+        </>    
     )
 }
 

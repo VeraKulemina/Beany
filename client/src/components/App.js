@@ -5,9 +5,9 @@ import SignUp from "./SignUp.js";
 import Login from "./Login.js";
 import Landing from "./Landing.js";
 import Store from "./Store.js";
-import Addition from "./Addition.js";
 import Favorites from "./Favorites.js";
 import Beans from "./Beans.js";
+import BeansForm from "./BeansForm.js";
 
 
 function App() {
@@ -39,8 +39,8 @@ function App() {
               <Store setUser={setUser} />
             </Route>
 
-            <Route path="/addition">
-              <Addition setUser={setUser} />
+            <Route path="/addbean">
+              <BeansForm setUser={setUser} />
             </Route>
 
             <Route path="/">

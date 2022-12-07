@@ -1,12 +1,12 @@
 import React from "react";
 
 
-function StoreCard(name, img, address){
+function StoreCard({name, img, address}){
 
     return(
         <>
             <div className="cards">
-                <img className="cardImage" src={img} alt="Error Loading Media" width="250"/>
+                <img className="cardImage" src={img} alt={name} width="250"/>
                 <p>{name}</p>
                 <p>{address}</p>
             </div>

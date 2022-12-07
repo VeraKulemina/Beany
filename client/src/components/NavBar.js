@@ -28,7 +28,7 @@ function NavBar({ user, setUser }) {
             <Link to="/favorites">My Favorites</Link>
             <Link to="/stores">Stores</Link>
             <Link to="/beans">Beans</Link>
-            <Link to="/addition">Add</Link>
+            <Link to="/addbean">Add Bean</Link>
             <button onClick={handleLogoutClick}>Logout</button>
           </>
         ) : (

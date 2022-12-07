@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function BeanCard(origin, name, description, image, roast ){
+function BeanCard({origin, name, description, image, roast}){
 
     return(
         <>
