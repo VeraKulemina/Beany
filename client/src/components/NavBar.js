@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom"
+
 
 function NavBar({ user, setUser }) {
+
+  const history = useHistory()
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
+        history.push("/")
       }
     });
   }

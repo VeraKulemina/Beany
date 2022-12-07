@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
+
 
 function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const history = useHistory()
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,7 +23,9 @@ function SignUp({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => 
+        setUser(user));
+        history.push("/beans")
       }
     });
   }

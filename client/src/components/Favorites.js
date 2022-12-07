@@ -3,11 +3,7 @@ import React from "react";
 function Favorites(){
     return(
         <div>
-            <div>
-                <p>
-                "Veraaaaa"
-                </p>
-            </div>
+          FAVS
         </div>    
     )
 }

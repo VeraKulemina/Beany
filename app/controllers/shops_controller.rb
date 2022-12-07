@@ -9,7 +9,7 @@ class ShopsController < ApplicationController
     end
 
     def create
-        shop= Shop.create!(shop_params)
+        shop = Shop.create!(shop_params)
         render json: shop, status: :created
     end
 
