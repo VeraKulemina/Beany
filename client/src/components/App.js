@@ -8,7 +8,7 @@ import Store from "./Store.js";
 import Addition from "./Addition.js";
 import Favorites from "./Favorites.js";
 import Beans from "./Beans.js";
-//TEST
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,16 +25,10 @@ function App() {
     <>
       <NavBar user={user} setUser={setUser} />
       <main>
-        {/* {user ? (
+        {user ? (
           <Switch>
             <Route path="/beans">
-              <Beans user={user}/>
-            </Route>
-          </Switch> */}
-          <Switch>
-            
-            <Route path="/signup">
-              <SignUp setUser={setUser} />
+              <Beans setUser={user}/>
             </Route>
 
             <Route path="/favorites">
@@ -45,12 +39,24 @@ function App() {
               <Store setUser={setUser} />
             </Route>
 
-            <Route path="/login">
-              <Login setUser={setUser} />
-            </Route>
-
             <Route path="/addition">
               <Addition setUser={setUser} />
+            </Route>
+
+            <Route path="/">
+              <Landing />
+            </Route>
+
+          </Switch>
+        ) : (
+          <Switch>
+            
+            <Route path="/signup">
+              <SignUp setUser={setUser} />
+            </Route>
+
+            <Route path="/login">
+              <Login setUser={setUser} />
             </Route>
 
             <Route path="/">
@@ -66,3 +72,4 @@ function App() {
 
 
 export default App;
+

@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
+// import { useNavigate } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  // const navigate = useNavigate()
+  const history = useHistory()
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,7 +18,12 @@ function Login({ setUser }) {
       body: JSON.stringify({ username, password}),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => 
+        setUser(user));
+        // navigate('/')
+        history.push("/beans")
+        
+        
       }
     });
   }
@@ -39,7 +48,7 @@ function Login({ setUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="submit"></button>
       </form>
     </div>
   );

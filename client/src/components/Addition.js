@@ -5,7 +5,7 @@ function Addition(){
         <div>
             <div>
                 <p>
-                "Veraaaaa"
+                "Addition"
                 </p>
             </div>
         </div>    

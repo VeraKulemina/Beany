@@ -5,8 +5,7 @@ function Beans(){
         <div>
             <div>
                 <p>
-                "Veraaaaa"
-                asd.cn;keqjrfvl;ienfiwenf
+                WOOOHOOOOO MY ROUTES WORK
                 </p>
             </div>
         </div>    
