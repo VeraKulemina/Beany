@@ -11,13 +11,26 @@ function Store(){
             .then(store => setStores(store))
     }, [])
 
+    function handleDelete(id) {
+        const newStoreList = stores.filter((oneShop) => 
+        oneShop.id !== id)
+        setStores(newStoreList)
+      }
+
+
+    function handleAdd(newStore) {
+        setStores([...stores, newStore]);
+      }
+
     const storeCard = stores.map((store) => (
         <StoreCard
             key = {store.id}
             id = {store.id}
             name = {store.name}
-            img = {store.img}
+            review = {store.review}
             address = {store.address}
+            handleAdd={handleAdd}
+            handleDelete={handleDelete}
         />
     ))
 

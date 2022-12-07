@@ -18,7 +18,7 @@ end
     Shop.create(
         address: Faker::Address.full_address,
         name: Faker::Company.name,
-        img: Faker::Company.logo
+        review: Faker::Number.between(from: 1, to: 10)
     )
 end
 

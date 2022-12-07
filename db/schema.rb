@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_224246) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_211640) do
   create_table "beans", force: :cascade do |t|
-    t.integer "shop_id", null: false
     t.string "origin"
     t.string "name"
     t.string "description"
     t.string "image"
     t.string "roast"
+    t.integer "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shop_id"], name: "index_beans_on_shop_id"
@@ -35,9 +35,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_224246) do
   create_table "shops", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "review"
   end
 
   create_table "users", force: :cascade do |t|

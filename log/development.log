@@ -2846,3 +2846,269 @@ Filter chain halted as :authorize rendered or redirected
 Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 322)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221205224200)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224200"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20221205224219)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224219"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBeans (20221205224231)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "beans" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer NOT NULL, "origin" varchar, "name" varchar, "description" varchar, "image" varchar, "roast" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_486e57ebc1"
+FOREIGN KEY ("shop_id")
+  REFERENCES "shops" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_beans_on_shop_id" ON "beans" ("shop_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224231"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20221205224246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "bean_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fcf5f70be8"
+FOREIGN KEY ("bean_id")
+  REFERENCES "beans" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_bean_id" ON "favorites" ("bean_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224246"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddReviewToShops (20221207211219)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "shops" ADD "review" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221207211219"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-07 21:15:21.618054"], ["updated_at", "2022-12-07 21:15:21.618054"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveImgFromShops (20221207211640)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ashops" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "img" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "review" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ashops" ("id","name","address","img","created_at","updated_at","review")
+                     SELECT "id","name","address","img","created_at","updated_at","review" FROM "shops"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "shops"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "review" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "shops" ("id","name","address","created_at","updated_at","review")
+                     SELECT "id","name","address","created_at","updated_at","review" FROM "ashops"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ashops"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221207211640"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kertzmann-Schulist"], ["address", "Suite 234 85233 VonRueden Rapid, Billberg, GA 48791"], ["created_at", "2022-12-07 21:22:52.640047"], ["updated_at", "2022-12-07 21:22:52.640047"], ["review", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.2ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kuvalis, Walsh and Daugherty"], ["address", "4900 Jones Track, Schummberg, ME 96539-1860"], ["created_at", "2022-12-07 21:22:52.643790"], ["updated_at", "2022-12-07 21:22:52.643790"], ["review", 6]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Erdman-Berge"], ["address", "Apt. 191 231 Bins Creek, Lake Letitia, CT 93704"], ["created_at", "2022-12-07 21:22:52.647757"], ["updated_at", "2022-12-07 21:22:52.647757"], ["review", 2]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Senger Group"], ["address", "Suite 525 20898 Cameron Extensions, Ellishaven, MO 00053-1024"], ["created_at", "2022-12-07 21:22:52.651666"], ["updated_at", "2022-12-07 21:22:52.651666"], ["review", 6]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Schulist-Wintheiser"], ["address", "Apt. 840 66986 Randal Spur, Ashantiside, MD 00151"], ["created_at", "2022-12-07 21:22:52.655940"], ["updated_at", "2022-12-07 21:22:52.655940"], ["review", 2]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hilpert and Sons"], ["address", "Suite 503 64649 Tyrell Crescent, Waelchiville, WY 83686-2897"], ["created_at", "2022-12-07 21:22:52.660036"], ["updated_at", "2022-12-07 21:22:52.660036"], ["review", 4]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Robel LLC"], ["address", "Apt. 670 455 Hackett Keys, Renaldobury, HI 68145"], ["created_at", "2022-12-07 21:22:52.664161"], ["updated_at", "2022-12-07 21:22:52.664161"], ["review", 5]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.2ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kunde and Sons"], ["address", "4154 Will Views, Port Kyliechester, WY 09875"], ["created_at", "2022-12-07 21:22:52.667859"], ["updated_at", "2022-12-07 21:22:52.667859"], ["review", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pouros, Schmitt and Blick"], ["address", "Apt. 890 55576 Johns Walks, Aaronview, IL 60820"], ["created_at", "2022-12-07 21:22:52.671820"], ["updated_at", "2022-12-07 21:22:52.671820"], ["review", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bosco and Sons"], ["address", "Apt. 686 98972 Cleta Road, South Patrice, ME 66573"], ["created_at", "2022-12-07 21:22:52.675616"], ["updated_at", "2022-12-07 21:22:52.675616"], ["review", 10]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.2ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 8], ["origin", "Italy"], ["name", "Wake up honey"], ["description", "With a rich crema and an aromatic taste profile, the Super Crema blend offers a full body with notes of roasted hazelnut and brown sugar, and all the harmony of Italian espresso."], ["image", "https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&w=1000&q=80"], ["roast", "light"], ["created_at", "2022-12-07 21:22:52.704910"], ["updated_at", "2022-12-07 21:22:52.704910"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 3], ["origin", "Brazil"], ["name", "Carnival Coffee"], ["description", "A classic and time-honored dark roast with notes of rich molasses and caramel thats perfect for making classic espresso drinks."], ["image", "https://images.unsplash.com/photo-1552346989-e069318e20a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["created_at", "2022-12-07 21:22:52.710512"], ["updated_at", "2022-12-07 21:22:52.710512"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 5], ["origin", "Australia"], ["name", "Kangaroo Kup"], ["description", "Our Espresso Roast is crafted with beans sourced from multiple regions—Latin America and Asia-Pacific. The blending of beans from varied regions results in unique flavor combinations."], ["image", "https://images.unsplash.com/photo-1629248989876-07129a68946d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["created_at", "2022-12-07 21:22:52.715636"], ["updated_at", "2022-12-07 21:22:52.715636"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 2], ["origin", "USA"], ["name", "Freeeeedom"], ["description", "We source 100% arabica beans when crafting our coffee. Each coffee bean requires a unique balance of temperature and time to reach its individual peak of aroma, acidity, body and flavor."], ["image", "https://images.unsplash.com/photo-1513530176992-0cf39c4cbed4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["created_at", "2022-12-07 21:22:52.720933"], ["updated_at", "2022-12-07 21:22:52.720933"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mBean Create (0.4ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 10], ["origin", "South Africa"], ["name", "Nelsons Roast"], ["description", "More than a drink, a cup of Starbucks coffee is part of your coffee ritual. Its the start to a new day, or a reward at the end of a long one. Its a lazy weekend morning, or a reason to share a moment with friends. Whatever your moment, savor it."], ["image", "https://images.unsplash.com/photo-1524350876685-274059332603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "medium"], ["created_at", "2022-12-07 21:22:52.726729"], ["updated_at", "2022-12-07 21:22:52.726729"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("shop_id", "origin", "name", "description", "image", "roast", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["shop_id", 6], ["origin", "Spain"], ["name", "Corrida"], ["description", " The fresher the beans, the more satisfying the cup. Thats why our coffees are packed soon after roasting with a one-way freshness valve designed to deliver a high-quality experience at its flavorful best."], ["image", "https://images.unsplash.com/photo-1607681034540-2c46cc71896d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["created_at", "2022-12-07 21:22:52.732288"], ["updated_at", "2022-12-07 21:22:52.732288"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221205224200)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224200"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20221205224219)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "img" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224219"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBeans (20221205224231)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "beans" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "origin" varchar, "name" varchar, "description" varchar, "image" varchar, "roast" varchar, "shop_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_486e57ebc1"
+FOREIGN KEY ("shop_id")
+  REFERENCES "shops" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_beans_on_shop_id" ON "beans" ("shop_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224231"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20221205224246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "bean_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fcf5f70be8"
+FOREIGN KEY ("bean_id")
+  REFERENCES "beans" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_bean_id" ON "favorites" ("bean_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221205224246"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddReviewToShops (20221207211219)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "shops" ADD "review" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221207211219"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveImgFromShops (20221207211640)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ashops" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "img" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "review" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ashops" ("id","name","address","img","created_at","updated_at","review")
+                     SELECT "id","name","address","img","created_at","updated_at","review" FROM "shops"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "shops"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "review" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "shops" ("id","name","address","created_at","updated_at","review")
+                     SELECT "id","name","address","created_at","updated_at","review" FROM "ashops"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ashops"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221207211640"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-07 21:28:51.117735"], ["updated_at", "2022-12-07 21:28:51.117735"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Keeling, Kihn and Hilpert"], ["address", "Apt. 619 469 Illa Flat, Gilshire, CO 87395-1484"], ["created_at", "2022-12-07 21:28:51.371908"], ["updated_at", "2022-12-07 21:28:51.371908"], ["review", 5]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dooley, Bogisich and Hermiston"], ["address", "69436 Desmond Ways, Deliaburgh, MO 20103-9643"], ["created_at", "2022-12-07 21:28:51.376161"], ["updated_at", "2022-12-07 21:28:51.376161"], ["review", 10]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Johnson Inc"], ["address", "Suite 163 62597 Langworth Unions, West Geoffreyview, MA 95765-0016"], ["created_at", "2022-12-07 21:28:51.380071"], ["updated_at", "2022-12-07 21:28:51.380071"], ["review", 10]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ullrich-MacGyver"], ["address", "Suite 953 638 Dane Pass, Danielhaven, RI 54009-0909"], ["created_at", "2022-12-07 21:28:51.384275"], ["updated_at", "2022-12-07 21:28:51.384275"], ["review", 2]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gottlieb Group"], ["address", "Suite 339 21300 Homenick Prairie, East Zoe, WI 35998-7532"], ["created_at", "2022-12-07 21:28:51.388863"], ["updated_at", "2022-12-07 21:28:51.388863"], ["review", 7]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dietrich-Koss"], ["address", "Apt. 697 8023 Ronald Vista, Port Archie, ME 39349-5176"], ["created_at", "2022-12-07 21:28:51.393089"], ["updated_at", "2022-12-07 21:28:51.393089"], ["review", 6]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Nitzsche-Marvin"], ["address", "Suite 187 1913 Jackson Locks, Maybellburgh, NV 94229"], ["created_at", "2022-12-07 21:28:51.397283"], ["updated_at", "2022-12-07 21:28:51.397283"], ["review", 4]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Davis, Klocko and Lakin"], ["address", "Suite 775 708 Mertz Fields, Robertsfurt, OK 12936-3378"], ["created_at", "2022-12-07 21:28:51.400814"], ["updated_at", "2022-12-07 21:28:51.400814"], ["review", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Sawayn LLC"], ["address", "Apt. 692 6565 Tory Well, Millsberg, AL 50607-7127"], ["created_at", "2022-12-07 21:28:51.404565"], ["updated_at", "2022-12-07 21:28:51.404565"], ["review", 8]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (0.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "created_at", "updated_at", "review") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Grant, Kozey and Pfannerstill"], ["address", "Suite 282 46345 Sade Brooks, Lemkebury, PA 78029-5052"], ["created_at", "2022-12-07 21:28:51.408147"], ["updated_at", "2022-12-07 21:28:51.408147"], ["review", 5]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("origin", "name", "description", "image", "roast", "shop_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["origin", "Italy"], ["name", "Wake up honey"], ["description", "With a rich crema and an aromatic taste profile, the Super Crema blend offers a full body with notes of roasted hazelnut and brown sugar, and all the harmony of Italian espresso."], ["image", "https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&w=1000&q=80"], ["roast", "light"], ["shop_id", 6], ["created_at", "2022-12-07 21:28:51.428704"], ["updated_at", "2022-12-07 21:28:51.428704"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("origin", "name", "description", "image", "roast", "shop_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["origin", "Brazil"], ["name", "Carnival Coffee"], ["description", "A classic and time-honored dark roast with notes of rich molasses and caramel thats perfect for making classic espresso drinks."], ["image", "https://images.unsplash.com/photo-1552346989-e069318e20a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["shop_id", 1], ["created_at", "2022-12-07 21:28:51.433383"], ["updated_at", "2022-12-07 21:28:51.433383"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("origin", "name", "description", "image", "roast", "shop_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["origin", "Australia"], ["name", "Kangaroo Kup"], ["description", "Our Espresso Roast is crafted with beans sourced from multiple regions—Latin America and Asia-Pacific. The blending of beans from varied regions results in unique flavor combinations."], ["image", "https://images.unsplash.com/photo-1629248989876-07129a68946d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["shop_id", 7], ["created_at", "2022-12-07 21:28:51.437839"], ["updated_at", "2022-12-07 21:28:51.437839"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mBean Create (0.4ms)[0m  [1m[32mINSERT INTO "beans" ("origin", "name", "description", "image", "roast", "shop_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["origin", "USA"], ["name", "Freeeeedom"], ["description", "We source 100% arabica beans when crafting our coffee. Each coffee bean requires a unique balance of temperature and time to reach its individual peak of aroma, acidity, body and flavor."], ["image", "https://images.unsplash.com/photo-1513530176992-0cf39c4cbed4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "dark"], ["shop_id", 9], ["created_at", "2022-12-07 21:28:51.443117"], ["updated_at", "2022-12-07 21:28:51.443117"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("origin", "name", "description", "image", "roast", "shop_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["origin", "South Africa"], ["name", "Nelsons Roast"], ["description", "More than a drink, a cup of Starbucks coffee is part of your coffee ritual. Its the start to a new day, or a reward at the end of a long one. Its a lazy weekend morning, or a reason to share a moment with friends. Whatever your moment, savor it."], ["image", "https://images.unsplash.com/photo-1524350876685-274059332603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29mZmVlJTIwYmVhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"], ["roast", "medium"], ["shop_id", 6], ["created_at", "2022-12-07 21:28:51.448623"], ["updated_at", "2022-12-07 21:28:51.448623"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mShop Pluck (0.1ms)[0m  [1m[34mSELECT "shops"."id" FROM "shops"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBean Create (0.3ms)[0m  [1m[32mINSERT INTO "beans" ("origin", "name", "description", "image", "roast", "shop_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["origin", "Spain"], ["name", "Corrida"], ["description", " The fresher the beans, the more satisfying the cup. Thats why our coffees are packed soon after roasting with a one-way freshness valve designed to deliver a high-quality experience at its flavorful best."], ["image", "https://images.unsplash.com/photo-1607681034540-2c46cc71896d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvZmZlZSUyMGJlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"], ["roast", "light"], ["shop_id", 3], ["created_at", "2022-12-07 21:28:51.453310"], ["updated_at", "2022-12-07 21:28:51.453310"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
