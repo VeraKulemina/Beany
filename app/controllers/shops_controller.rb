@@ -21,6 +21,6 @@ class ShopsController < ApplicationController
 
     private
         def shop_params
-            params.permit(:name, :address, :img)
+            params.permit(:name, :address, :review)
         end
 end

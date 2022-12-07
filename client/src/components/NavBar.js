@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 
 
@@ -18,17 +18,16 @@ function NavBar({ user, setUser }) {
 
   return (
     <header>
-      {/* <div>
-        <Link to="/">Landing</Link>
-      </div> */}
+    
       <div>
         {user ? (
           <> 
             <h1>Welcome, {user.username}!</h1>
-            <Link to="/favorites">My Favorites</Link>
-            <Link to="/stores">Stores</Link>
-            <Link to="/beans">Beans</Link>
-            <Link to="/addbean">Add Bean</Link>
+            <NavLink to="/favorites">My Favorites</NavLink>
+            <NavLink to="/stores">Stores</NavLink>
+            <NavLink to="/beans">Beans</NavLink>
+            <NavLink to="/addBean">Add Bean</NavLink>
+            <NavLink to="/addStore">Add Store</NavLink>
             <button onClick={handleLogoutClick}>Logout</button>
           </>
         ) : (

@@ -1,4 +1,8 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
+import { useHistory } from "react-router-dom"
+
+//useParams
+
 
 function BeansForm({onAddBeans}) {
   const [origin, setOrigin] = useState("");
@@ -6,10 +10,18 @@ function BeansForm({onAddBeans}) {
   const [image, setImage] = useState([]);
   const [roast, setRoast] = useState("");
   const [description, setDescription] = useState("");
-  const [shopName, setShopName] = useState("");
+  const [shop_id, setShopId] = useState("");
+
+  const history = useHistory()
 
 
+  // const [beans, setBeans] = useState([]);
 
+//   useEffect(() => {
+//     fetch('/beans')
+//         .then((r) => r.json())
+//         .then(beans => setBeans(beans))
+// }, [])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,8 +30,8 @@ function BeansForm({onAddBeans}) {
       name: name,
       image: image,
       roast: roast,
-      description: description
-   
+      description: description,
+      shop_id: parseInt(shop_id),
     };
     fetch("/beans", {
     method: "POST",
@@ -30,13 +42,14 @@ function BeansForm({onAddBeans}) {
   })
     .then((r) => r.json())
     .then((newBean) => onAddBeans(newBean));
-    setImage("");
     setOrigin("");
     setName("");
     setRoast("");
-    setDescription("");
-    setShopName("");
-
+    setDescription("")
+    setImage("")    
+    setShopId("")
+    history.push("/beans")
+  
 }
 
     
@@ -75,14 +88,29 @@ function BeansForm({onAddBeans}) {
         />
         <br />
         <input
-          type="text"
-          name="shop"
-          placeholder="Enter a shop here ..."
-          className="input-text"
-          value={shopName}
-          onChange={(e) => setShopName(e.target.value)}
-        />
+            type="text"
+            name="typeTwo"
+            placeholder="shop_id"
+            value={shop_id}
+            onChange={(e) => setShopId(e.target.value)}
+          />
+          <br />
+        <input
+            type="text"
+            name="typeTwo"
+            placeholder="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
         <br />
+        <input
+            type="text"
+            name="typeTwo"
+            placeholder="roast"
+            value={roast}
+            onChange={(e) => setRoast(e.target.value)}
+          />
+          <br />
         <input
           type="submit"
           name="submit"

@@ -1,11 +1,17 @@
 class BeansController < ApplicationController
+
+
+    
     def index
         render json: Bean.all
     end
 
     def show
-        bean = Bean.find(params[:id])
-        render json: bean
+        bean = Bean.where(shop_id: params[:id])
+        if bean
+            render json: bean
+        else render json: { error: "Bean not found" }, status: :not_found
+      end
     end
 
     def create
@@ -20,7 +26,8 @@ class BeansController < ApplicationController
     end
 
     private
-        def bean_params
-            params.permit(:origin, :name, :description, :image, :roast)
-        end
+
+    def bean_params
+        params.require(:bean).permit(:origin, :name, :description, :image, :roast, :shop_id)
+    end
 end

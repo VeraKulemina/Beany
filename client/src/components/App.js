@@ -8,6 +8,7 @@ import Store from "./Store.js";
 import Favorites from "./Favorites.js";
 import Beans from "./Beans.js";
 import BeansForm from "./BeansForm.js";
+import StoreForm from "./StoreForm.js"
 
 
 function App() {
@@ -39,8 +40,12 @@ function App() {
               <Store setUser={setUser} />
             </Route>
 
-            <Route path="/addbean">
+            <Route path="/addBean">
               <BeansForm setUser={setUser} />
+            </Route>
+
+            <Route path="/addStore">
+              <StoreForm setUser={setUser} />
             </Route>
 
             <Route path="/">
