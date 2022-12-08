@@ -46,7 +46,7 @@ function Store(){
 
     return(
         <>
-            {storeCard}
+            <ul>{storeCard}</ul>
         </>    
     )
 }

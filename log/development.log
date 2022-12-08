@@ -10532,3 +10532,275 @@ Completed 200 OK in 28ms (Views: 22.6ms | ActiveRecord: 0.6ms | Allocations: 207
 Completed 201 Created in 21ms (Views: 0.8ms | ActiveRecord: 1.9ms | Allocations: 18705)
 
 
+Started GET "/186:6)%20Unknown%20word" for 127.0.0.1 at 2022-12-08 13:52:28 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/186:6)%20Unknown%20word"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-08 13:53:38 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 901)
+
+
+Started GET "/shops" for 127.0.0.1 at 2022-12-08 13:53:38 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.71ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms | Allocations: 3217)
+
+
+Started POST "/beans" for 127.0.0.1 at 2022-12-08 13:53:53 -0700
+Started GET "/beans" for 127.0.0.1 at 2022-12-08 13:53:53 -0700
+Processing by BeansController#create as */*
+  Parameters: {"origin"=>"brazil", "name"=>"Vera", "image"=>"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg", "roast"=>"1", "description"=>"1", "shop_id"=>1, "bean"=>{"origin"=>"brazil", "name"=>"Vera", "description"=>"1", "image"=>"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg", "roast"=>"1", "shop_id"=>1}}
+Processing by BeansController#index as */*
+  [1m[36mBean Load (0.2ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.6ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.2ms | Allocations: 3362)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/beans_controller.rb:18:in `create'
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beans_controller.rb:18:in `create'
+  [1m[36mBean Create (1.2ms)[0m  [1m[32mINSERT INTO "beans" ("origin", "name", "description", "image", "roast", "shop_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["origin", "brazil"], ["name", "Vera"], ["description", "1"], ["image", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"], ["roast", "1"], ["shop_id", 1], ["created_at", "2022-12-08 20:53:53.338147"], ["updated_at", "2022-12-08 20:53:53.338147"]]
+  ↳ app/controllers/beans_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/beans_controller.rb:18:in `create'
+[active_model_serializers] Rendered BeanSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 201 Created in 44ms (Views: 1.2ms | ActiveRecord: 2.7ms | Allocations: 10932)
+
+
+Started GET "/1" for 127.0.0.1 at 2022-12-08 13:53:53 -0700
+Started GET "/fekfekfm" for 127.0.0.1 at 2022-12-08 13:53:53 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/1"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fekfekfm"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-08 13:54:16 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 859)
+
+
+Started GET "/beans" for 127.0.0.1 at 2022-12-08 13:54:16 -0700
+Processing by BeansController#index as */*
+  [1m[36mBean Load (0.7ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.56ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.7ms | Allocations: 3531)
+
+
+Started GET "/1" for 127.0.0.1 at 2022-12-08 13:54:16 -0700
+Started GET "/fekfekfm" for 127.0.0.1 at 2022-12-08 13:54:16 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/1"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fekfekfm"):
+  
+Started GET "/shops" for 127.0.0.1 at 2022-12-08 13:54:17 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.46ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.2ms | Allocations: 3187)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-08 13:54:50 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 852)
+
+
+Started GET "/shops" for 127.0.0.1 at 2022-12-08 13:54:50 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.94ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.2ms | Allocations: 3188)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-08 13:59:10 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 859)
+
+
+Started GET "/shops" for 127.0.0.1 at 2022-12-08 13:59:10 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.01ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.2ms | Allocations: 3188)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-08 14:00:40 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-08 14:00:40 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/shops" for 127.0.0.1 at 2022-12-08 14:00:40 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.79ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.3ms | Allocations: 3187)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-08 14:00:47 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/shops" for 127.0.0.1 at 2022-12-08 14:00:47 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.34ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.2ms | Allocations: 3187)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-08 14:01:36 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-08 14:01:36 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-12-08 14:01:44 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-12-08 14:01:51 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 861)
+
+
+Started GET "/shops" for 127.0.0.1 at 2022-12-08 14:01:51 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.73ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.3ms | Allocations: 3188)
+
+
+Started PATCH "/shops/2" for 127.0.0.1 at 2022-12-08 14:01:55 -0700
+Processing by ShopsController#update as */*
+  Parameters: {"review"=>"2", "id"=>"2", "shop"=>{"review"=>"2"}}
+  [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/shops_controller.rb:28:in `update'
+[active_model_serializers] Rendered ShopSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 992)
+
+
+Started DELETE "/shops/2" for 127.0.0.1 at 2022-12-08 14:01:57 -0700
+Processing by ShopsController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/shops_controller.rb:17:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/shops_controller.rb:18:in `destroy'
+  [1m[36mShop Destroy (1.2ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/shops_controller.rb:18:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/shops_controller.rb:18:in `destroy'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.5ms | Allocations: 1949)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::ReadOnlyException: attempt to write a readonly database):
+  
+app/controllers/shops_controller.rb:18:in `destroy'
+Started GET "/beans" for 127.0.0.1 at 2022-12-08 14:01:59 -0700
+Processing by BeansController#index as */*
+  [1m[36mBean Load (0.3ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.83ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 3488)
+
+
+Started GET "/1" for 127.0.0.1 at 2022-12-08 14:01:59 -0700
+Started GET "/fekfekfm" for 127.0.0.1 at 2022-12-08 14:01:59 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fekfekfm"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/1"):
+  
+Started GET "/beans" for 127.0.0.1 at 2022-12-08 14:02:08 -0700
+Processing by BeansController#index as */*
+  [1m[36mBean Load (0.2ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.76ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 3488)
+
+
+Started GET "/1" for 127.0.0.1 at 2022-12-08 14:02:08 -0700
+Started GET "/fekfekfm" for 127.0.0.1 at 2022-12-08 14:02:08 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/1"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fekfekfm"):
+  
+Started GET "/shops" for 127.0.0.1 at 2022-12-08 14:02:09 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.91ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 3187)
+
+
+Started DELETE "/shops/21" for 127.0.0.1 at 2022-12-08 14:02:12 -0700
+Processing by ShopsController#destroy as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/shops_controller.rb:17:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/shops_controller.rb:18:in `destroy'
+  [1m[36mShop Destroy (0.4ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = ?[0m  [["id", 21]]
+  ↳ app/controllers/shops_controller.rb:18:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/shops_controller.rb:18:in `destroy'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.7ms | Allocations: 1913)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::ReadOnlyException: attempt to write a readonly database):
+  
+app/controllers/shops_controller.rb:18:in `destroy'
+Started GET "/beans" for 127.0.0.1 at 2022-12-08 14:02:46 -0700
+Processing by BeansController#index as */*
+  [1m[36mBean Load (0.3ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.87ms)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.3ms | Allocations: 3488)
+
+
+Started GET "/1" for 127.0.0.1 at 2022-12-08 14:02:46 -0700
+Started GET "/fekfekfm" for 127.0.0.1 at 2022-12-08 14:02:46 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/1"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fekfekfm"):
+  
