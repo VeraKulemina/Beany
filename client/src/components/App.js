@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar.js";
 import SignUp from "./SignUp.js";
 import Login from "./Login.js";
-import Landing from "./Landing.js";
 import Store from "./Store.js";
 import Favorites from "./Favorites.js";
 import Beans from "./Beans.js";
@@ -49,7 +48,7 @@ function App() {
             </Route>
 
             <Route path="/">
-              <Landing />
+              <Login setUser={setUser} />
             </Route>
 
           </Switch>
@@ -60,12 +59,8 @@ function App() {
               <SignUp setUser={setUser} />
             </Route>
 
-            <Route path="/login">
-              <Login setUser={setUser} />
-            </Route>
-
             <Route path="/">
-              <Landing />
+              <Login setUser={setUser} />
             </Route>
             
           </Switch>

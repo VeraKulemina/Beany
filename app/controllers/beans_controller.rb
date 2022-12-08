@@ -25,6 +25,8 @@ class BeansController < ApplicationController
         head :no_content
     end
 
+  
+
     private
 
     def bean_params

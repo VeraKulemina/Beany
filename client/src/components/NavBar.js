@@ -17,17 +17,17 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <header>
+    <header style={{ width: '100%' }}>
     
-      <div>
+      <div className="container">
         {user ? (
           <> 
             <h1>Welcome, {user.username}!</h1>
-            <NavLink to="/favorites">My Favorites</NavLink>
-            <NavLink to="/stores">Stores</NavLink>
-            <NavLink to="/beans">Beans</NavLink>
-            <NavLink to="/addBean">Add Bean</NavLink>
-            <NavLink to="/addStore">Add Store</NavLink>
+            <NavLink className="link" style={{ flex: 1 }} to="/favorites">My Favorites</NavLink>
+            <NavLink className="link" style={{ flex: 1 }} to="/stores">Stores</NavLink>
+            <NavLink className="link" style={{ flex: 1 }} to="/beans">Beans</NavLink>
+            <NavLink className="link" style={{ flex: 1 }} to="/addBean">Add Bean</NavLink>
+            <NavLink className="link" style={{ flex: 1 }} to="/addStore">Add Store</NavLink>
             <button onClick={handleLogoutClick}>Logout</button>
           </>
         ) : (
@@ -41,3 +41,7 @@ function NavBar({ user, setUser }) {
 }
 
 export default NavBar;
+
+
+
+

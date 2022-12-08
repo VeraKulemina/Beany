@@ -19,8 +19,27 @@ class ShopsController < ApplicationController
         head :no_content
     end
 
+    # def update
+    #     shop = Shop.find_by(id: params[:id])
+    #     shop.update!(shop_review)
+    #     render json: shop
+    # end
+    def update
+        shop = Shop.find(params[:id])
+        if shop
+          shop.update(shop_review)
+          render json: shop
+        else
+          render json: { error: "Shop not found" }, status: :not_found
+        end
+      end
+
     private
         def shop_params
             params.permit(:name, :address, :review)
         end
+
+        def shop_review
+            params.require(:shop).permit(:review)
+        end    
 end

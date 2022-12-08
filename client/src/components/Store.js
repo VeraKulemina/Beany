@@ -17,6 +17,14 @@ function Store(){
         setStores(newStoreList)
       }
 
+    function handleReview(updatedReview) {
+        setStores((stores) =>
+            stores.map((review) => {
+            return review.id === updatedReview.id ? updatedReview : review;
+        })
+        );
+    }
+
 
     function handleAdd(newStore) {
         setStores([...stores, newStore]);
@@ -31,13 +39,14 @@ function Store(){
             address = {store.address}
             handleAdd={handleAdd}
             handleDelete={handleDelete}
+            handleReview={handleReview}
         />
     ))
 
 
     return(
         <>
-            <ul>{storeCard}</ul>
+            {storeCard}
         </>    
     )
 }
