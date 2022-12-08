@@ -1,6 +1,8 @@
 import React, { useState, } from "react";
 // import { useNavigate } from "react-router-dom"
 import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom";
+
 
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
@@ -29,28 +31,33 @@ function Login({ setUser }) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit"></button>
-      </form>
-    </div>
+    <>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <h1>Login</h1>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            autoComplete="off"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit"></button>
+        </form>
+      </div>
+
+      <Link to="/signup">Signup</Link>
+    </>
+
   );
 }
 
