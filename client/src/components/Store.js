@@ -37,7 +37,7 @@ function Store(){
 
     return(
         <>
-            <ul>{storeCard}</ul>
+            {storeCard}
         </>    
     )
 }

@@ -36,3 +36,80 @@
     transform: rotate(360deg);
   }
 }
+
+.cards {
+  list-style: none;
+}
+.project-item{
+  list-style: none;
+  margin: 1rem;
+  width: 350px;
+  border: 1px solid white;
+  margin: auto;
+  margin: fixed;
+  background-color: white;
+
+}
+
+.project-item img {
+  width: 100%;
+}
+
+.card {
+  margin: 1rem;
+  width: 350px;
+  border: 1px solid white;
+  
+}
+
+.card img {
+  width: 100%;
+}
+
+.card button {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: calc(33% - 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: calc(33% - 2rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    width: calc(20% - 2rem);
+  }
+}
+
+.card {
+  width: 350px;
+  padding: 20px;
+  border-radius:10px;
+  box-shadow: 0 0 15px 7px grey;
+  margin-right: 5ch;
+  align-items: center;
+  
+}
+body {
+  font-family: 'Bellarosta', sans-serif;
+  
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-repeat: no-repeat;
+    background-size: 100% 250%;
+    /* background-image: url("https://static.vecteezy.com/system/resources/previews/001/987/871/original/abstract-black-stripes-diagonal-background-free-vector.jpg"); */
+  
+}

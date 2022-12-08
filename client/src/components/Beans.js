@@ -31,7 +31,7 @@ function Beans(){
 
     return(
         <>
-            <ul>{beanCard}</ul>
+            {beanCard}
         </>    
     )
 }
