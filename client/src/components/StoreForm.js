@@ -77,7 +77,7 @@ function StoreForm({handleAdd}) {
           type="submit"
           name="submit"
           value="Submit"
-          className="input-text"
+          className="button"
         />
       </form>
     </div>

@@ -26,12 +26,20 @@ header button {
   font-size: 1rem;
   display: inline-block;
   background-color: #fff8e7;
-  border: 1px solid salmon;
-  margin: 1rem;
-  padding: 1rem;
+  border: 1px solid brown;
+  margin: 1%;
+  padding: 10px;
   text-decoration: none;
-  color: salmon;
+  color: brown;
   cursor: pointer;
+  border-radius: 10px;
+}
+
+a.link{
+  text-align: center;
+  width: 300px;
+  height: 20px;
+
 }
 
 main {
@@ -49,7 +57,7 @@ main {
 
 form {
   background-color: #fff8e7;
-  border: 1px solid salmon;
+  border: 1px solid brown;
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -61,9 +69,6 @@ form {
   
 }
 
-form input {
-  margin: 0.25rem 0;
-}
 
 
 
@@ -71,7 +76,7 @@ form input {
   text-align: center;
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -80,93 +85,55 @@ form input {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.cards{
-  list-style: none;
-  margin: 1rem;
-  /* width: 350px; */
-  border: 1px solid white;
-  /* margin: auto; */
-  /* margin: fixed;  */
-  background-color: white; 
-  float: left;
-  width: 50%; /* adjust this value to adjust the width of the card */
-  height: 450px;
-  position: abosolute;
-  z-index: -1;
-}
-
-.cards{
-  list-style: none;
-  margin: 1rem;
-  /* width: 350px; */
-  border: 1px solid white;
-  /* margin: auto; */
-  /* margin: fixed;  */
-  background-color: white; 
-  float: left;
-  width: 50%; /* adjust this value to adjust the width of the card */
-  height: 450px;
-  position: abosolute;
-  z-index: -1;
-}
-
-.cards img {
-  width: 100%;
-}
-
-.cards img {
-  width: 100%;
-}
-
-.card button {
-  margin-top: 0.5rem;
-}
-
-/* @media (min-width: 768px) {
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .cards {
-    width: calc(33% - 2rem);
-  }
-}
-@media (min-width: 1024px) {
-  .cards {
-    width: calc(33% - 2rem);
-  }
-}
-@media (min-width: 1200px) {
-  .card {
-    width: calc(20% - 2rem);
-  }
 } */
+
+
+
+
 
 .cards {
   width: 350px;
   padding: 20px;
   border-radius:10px;
   box-shadow: 0 0 15px 7px grey;
-  /* margin-right: 5ch; */
   align-items: center;
   z-index: 2;
+  list-style: none;
+  margin: 1rem;
+  border: px solid brown;
+  background-color: #fff8e7;
+  float: left;
   
 }
+
+.cards img {
+  width: 100%;
+  height: 250px;
+  width: 350px;
+}
+
+.cards2 {
+  width: 350px;
+  padding: 20px;
+  border-radius:10px;
+  box-shadow: 0 0 15px 7px grey;
+  align-items: center;
+  z-index: 2;
+  list-style: none;
+  margin: 1rem;
+  border: px solid brown;
+  background-color: #fff8e7;
+  float: left;
+  
+}
+
+.cards2 img {
+  width: 100%;
+  height: 250px;
+  width: 350px;
+}
+
+
 body {
   font-family: 'Bellarosta', sans-serif;
   
@@ -190,16 +157,14 @@ body {
 }
 
 .siteTitle{
-  color:brown;
+  color:black;
   text-align: center;
-
+  font-style:italic;
 }
 
-
-
-
-
-
+.or2{
+  margin-left: 60px
+}
 
 .or {
   color: brown;
@@ -233,9 +198,40 @@ button {
   text-align: center;
   background-color: brown;
   color: white;
+  border-radius: 7.5px;
+
 }
 
-.or2{
-  margin-left: 60px
+.button {
+  width: 140px;
+  text-align: center;
+  background-color: brown;
+  color: white;
 }
+
+
+.storeCards{
+  list-style: none;
+  margin: 1rem;
+  padding: 20px;
+  border: 1px solid salmon;
+  border-radius: 15px;
+  background-color: #fff8e7 ; 
+  height: 225px;
+  float: left;
+  width: 350px; 
+  align-items: center;
+  box-shadow: 0 0 15px 7px grey;
+  z-index: -1;
+}
+
+.storeDeleteButton{
+  border-radius: 15px;
+  background-color: rgb(145, 10, 10);
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 100px
+  }
+
 

@@ -5,7 +5,7 @@ puts "🌱 Seeding data..."
 
 puts "🌱 Seeded beans..."    
 
-10.times do
+1.times do
     User.create(
         username: Faker::Internet.username(specifier: 7..12),
         email: Faker::Internet.email,
@@ -14,7 +14,7 @@ puts "🌱 Seeded beans..."
     )
 end
 
-10.times do
+50.times do
     Shop.create(
         address: Faker::Address.full_address,
         name: Faker::Company.name,

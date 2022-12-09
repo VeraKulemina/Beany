@@ -119,8 +119,8 @@ function BeansForm({onAddBeans}) {
         <input
           type="submit"
           name="submit"
-          value="Create New Art Object"
-          className="input-text"
+          value="Submit"
+          className="button"
         />
       </form>
     </div>

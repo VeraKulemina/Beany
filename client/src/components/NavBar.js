@@ -26,8 +26,8 @@ function NavBar({ user, setUser }) {
               <h1 className="siteTitle">Welcome, {user.username}!</h1>
               <NavLink className="link" style={{ flex: 1 }} to="/favorites">My Favorites</NavLink>
               <NavLink className="link" style={{ flex: 1 }} to="/stores">Stores</NavLink>
-              <NavLink className="link" style={{ flex: 1 }} to="/beans">Beans</NavLink>
               <NavLink className="link" style={{ flex: 1 }} to="/addStore">Add Store</NavLink>
+              <NavLink className="link" style={{ flex: 1 }} to="/beans">Beans</NavLink>
               <NavLink className="link" style={{ flex: 1 }} to="/addBean">Add Bean</NavLink>
               <button onClick={handleLogoutClick}>Logout</button> 
             </div>

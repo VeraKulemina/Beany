@@ -19,9 +19,8 @@ function BeanCard({id, name, image, handleDeleteBean, shop, address}){
                 <h1>{name}</h1>
                 <p>Located at: {shop}</p>
                 <p>Address: {address}</p>
-                <Link to={`/beans/${id}`}><button>More Info</button></Link>
-                <br />
-        
+                <Link to={`/beans/${id}`}><button>Details</button></Link>
+                - or -
                 <button className="deleteButtons" onClick={handleDelete}>Remove Bean</button>
             </div>
         </>
