@@ -1,8 +1,6 @@
 import React, { useState} from "react";
 import { useHistory } from "react-router-dom"
 
-//useParams
-
 
 function BeansForm({onAddBeans}) {
   const [origin, setOrigin] = useState("");
@@ -41,7 +39,9 @@ function BeansForm({onAddBeans}) {
     body: JSON.stringify(beanData),
   })
     .then((r) => r.json())
-    .then((newBean) => onAddBeans(newBean));
+    // .then((newBean) => onAddBeans(newBean));
+    .then((newBean) => console.log(((newBean))));
+
     setOrigin("");
     setName("");
     setRoast("");
@@ -59,58 +59,63 @@ function BeansForm({onAddBeans}) {
       <form className="add-toy-form" onSubmit={handleSubmit}>
         <br />
         <h1 className="h2">Create Bean!</h1>
+        <label>Name</label>
         <input
           type="text"
           name="name"
-          placeholder="Enter a bean's name..."
+          placeholder="Colombia Supremo "
           className="input-text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <br />
-        
+        <label>Country of Origin</label>
         <input
           type="text"
           name="origin"
-          placeholder="Enter a origin here ..."
+          placeholder="Madagascar"
           className="input-text"
           value={origin}
           onChange={(e) => setOrigin(e.target.value)}
         />
         <br />
+        <label>Image (URL)</label>
         <input
           type="text"
           name="image"
-          placeholder="Enter a Bean's image URL..."
+          placeholder="https://www.foodandwine.com22746e82c.jpg"
           className="input-text"
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
         <br />
+        <label>Shop ID: (1-8)</label>
         <input
             type="text"
             name="typeTwo"
-            placeholder="shop_id"
+            placeholder="5"
             value={shop_id}
             onChange={(e) => setShopId(e.target.value)}
           />
           <br />
+        <label>Roast</label>
         <input
             type="text"
             name="typeTwo"
-            placeholder="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        <br />
-        <input
-            type="text"
-            name="typeTwo"
-            placeholder="roast"
+            placeholder="Light"
             value={roast}
             onChange={(e) => setRoast(e.target.value)}
           />
           <br />
+        <label>Description</label>
+        <input
+            type="text"
+            name="typeTwo"
+            placeholder="This coffee delights the senses with the taste of ripe... "
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        <br />
         <input
           type="submit"
           name="submit"

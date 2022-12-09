@@ -13,7 +13,13 @@ function Beans(){
 
     function handleAdd(newBean) {
         setBeans([...beans, newBean]);
-      }
+    }
+
+    function handleDeleteBean(id) {
+        const newBeansList = beans.filter((oneBean) => 
+        oneBean.id !== id)
+        setBeans(newBeansList)
+    }
 
     const beanCard = beans.map((bean) => (
         <BeansCard
@@ -24,7 +30,11 @@ function Beans(){
             description = {bean.description}
             image = {bean.image}
             roast ={bean.roast}
+            shop = {bean.shop.name}
+            address = {bean.shop.address}
+
             onAddBeans={handleAdd}
+            handleDeleteBean={handleDeleteBean}
         />
     ))
 

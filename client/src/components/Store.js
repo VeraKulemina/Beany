@@ -37,9 +37,11 @@ function Store(){
             name = {store.name}
             review = {store.review}
             address = {store.address}
+            // beans = {store.beans}
             handleAdd={handleAdd}
             handleDelete={handleDelete}
             handleReview={handleReview}
+            
         />
     ))
 

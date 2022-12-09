@@ -33,12 +33,14 @@ function StoreCard({id, name, review, address, handleDelete, handleReview}){
     return(
         <>
             <div className="cards">
-                <p>{name}</p>
-                <p>{address}</p>
-                <p>{review}</p>
+                <p>Name: {name}</p>
+                <p>Address: {address}</p>
+                <p>Rating (/10): {review}</p>
+                {/* <p>{beans.name}</p> */}
                 <input type="integer" onChange = {(e)=>{setReview(e.target.value)}}value={reviews} />
                 <button onClick={handleUpdateReview}>Update Rating</button>
                 <button className="deleteButtons" onClick={handleDeleteShop}>Remove Shop</button>
+
             </div>
            
         </> 

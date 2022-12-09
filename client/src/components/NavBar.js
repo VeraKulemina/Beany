@@ -19,20 +19,22 @@ function NavBar({ user, setUser }) {
   return (
     <header style={{ width: '100%' }}>
     
-      <div className="container">
+      <div >
         {user ? (
           <> 
-            <h1>Welcome, {user.username}!</h1>
-            <NavLink className="link" style={{ flex: 1 }} to="/favorites">My Favorites</NavLink>
-            <NavLink className="link" style={{ flex: 1 }} to="/stores">Stores</NavLink>
-            <NavLink className="link" style={{ flex: 1 }} to="/beans">Beans</NavLink>
-            <NavLink className="link" style={{ flex: 1 }} to="/addBean">Add Bean</NavLink>
-            <NavLink className="link" style={{ flex: 1 }} to="/addStore">Add Store</NavLink>
-            <button onClick={handleLogoutClick}>Logout</button>
+            <div className="container">
+              <h1 className="siteTitle">Welcome, {user.username}!</h1>
+              <NavLink className="link" style={{ flex: 1 }} to="/favorites">My Favorites</NavLink>
+              <NavLink className="link" style={{ flex: 1 }} to="/stores">Stores</NavLink>
+              <NavLink className="link" style={{ flex: 1 }} to="/beans">Beans</NavLink>
+              <NavLink className="link" style={{ flex: 1 }} to="/addStore">Add Store</NavLink>
+              <NavLink className="link" style={{ flex: 1 }} to="/addBean">Add Bean</NavLink>
+              <button onClick={handleLogoutClick}>Logout</button> 
+            </div>
           </>
         ) : (
           <>
-            <h1>Welcome to Vera, Chuck, & Andy's Site</h1>
+            <h1 className="siteTitle">Find My Bean</h1>
           </>
         )}
       </div>

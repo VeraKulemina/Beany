@@ -8,6 +8,7 @@ import Favorites from "./Favorites.js";
 import Beans from "./Beans.js";
 import BeansForm from "./BeansForm.js";
 import StoreForm from "./StoreForm.js"
+import Details from "./Details.js";
 
 
 function App() {
@@ -27,8 +28,13 @@ function App() {
       <main>
         {user ? (
           <Switch>
+
+            <Route exact path="/beans/:id">
+              <Details />
+            </Route>
+
             <Route path="/beans">
-              <Beans setUser={user}/>
+              <Beans setUser={setUser}/>
             </Route>
 
             <Route path="/favorites">
@@ -48,7 +54,7 @@ function App() {
             </Route>
 
             <Route path="/">
-              <Login setUser={setUser} />
+              <Login exact setUser={setUser} />
             </Route>
 
           </Switch>

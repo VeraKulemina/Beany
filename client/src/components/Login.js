@@ -1,5 +1,4 @@
 import React, { useState, } from "react";
-// import { useNavigate } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { Link } from "react-router-dom";
 
@@ -7,7 +6,6 @@ import { Link } from "react-router-dom";
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const navigate = useNavigate()
   const history = useHistory()
 
   function handleSubmit(e) {
@@ -22,7 +20,6 @@ function Login({ setUser }) {
       if (r.ok) {
         r.json().then((user) => 
         setUser(user));
-        // navigate('/')
         history.push("/beans")
         
         
@@ -30,9 +27,12 @@ function Login({ setUser }) {
     });
   }
 
+
+
   return (
     <>
-      <div>
+    
+      <div className="buttonContainer2">
         <form onSubmit={handleSubmit}>
           <h1>Login</h1>
           <label htmlFor="username">Username</label>
@@ -51,11 +51,13 @@ function Login({ setUser }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit"></button>
+          <button type="submit">Submit</button>
         </form>
       </div>
-
-      <Link to="/signup">Signup</Link>
+      <h1 className="or">OR</h1>
+      <div className="buttonContainer">
+        <Link to="/signup"><button className="buttonSign">Create an Account</button></Link>
+      </div>
     </>
 
   );

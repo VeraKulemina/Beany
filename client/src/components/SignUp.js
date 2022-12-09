@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
+
 
 
 function SignUp({ setUser }) {
@@ -32,6 +34,7 @@ function SignUp({ setUser }) {
   
     return (
       <form onSubmit={handleSubmit}>
+        <h1>Signup!</h1>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -54,6 +57,8 @@ function SignUp({ setUser }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
         <button type="submit">Submit</button>
+        <p className="or2">or</p>
+        <Link to={`/beans`}><button>Return to sign in</button></Link>
       </form>
     );
   }

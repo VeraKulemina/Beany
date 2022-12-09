@@ -41,30 +41,33 @@ function StoreForm({handleAdd}) {
     <div className="container">
       <form className="add-toy-form" onSubmit={handleSubmit}>
         <br />
-        <h1 className="h2">Create a Store!</h1>
+        <h1 className="h2">Create a new store!</h1>
         <br />
+        <label>Name</label>
         <input
           type="text"
           name="shop"
-          placeholder="Enter a shop here ..."
+          placeholder="Dunkin Donuts"
           className="input-text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <br />
+        <label>Address</label>
         <input
           type="text"
           name="shop"
-          placeholder="Enter a shop here ..."
+          placeholder="18300 W Alameda Pkwy, Morrison, CO 80465"
           className="input-text"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
         />
         <br />
+        <label>Rating (1-10)</label>
         <input
-          type="text"
+          type="integer"
           name="shop"
-          placeholder="Enter a shop here ..."
+          placeholder="9"
           className="input-text"
           value={review}
           onChange={(e) => setReview(e.target.value)}
@@ -73,7 +76,7 @@ function StoreForm({handleAdd}) {
         <input
           type="submit"
           name="submit"
-          value="Create New Art Object"
+          value="Submit"
           className="input-text"
         />
       </form>
