@@ -66,6 +66,7 @@ form {
   z-index: 2;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 10px;
   
 }
 
@@ -88,7 +89,9 @@ form {
 } */
 
 
-
+input.button{
+  border-radius: 7.5px;
+}
 
 
 .cards {
@@ -178,12 +181,12 @@ body {
   border: 1px solid salmon;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 200px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding: 15px
-
+  padding: 15px;
+  border-radius:10px;
 }
 .buttonContainer2{
   margin: auto;

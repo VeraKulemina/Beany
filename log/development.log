@@ -24836,3 +24836,159 @@ Processing by BeansController#index as */*
 Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.8ms | Allocations: 7690)
 
 
+Started GET "/me" for 127.0.0.1 at 2022-12-09 11:55:40 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 819)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-09 11:55:55 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 805)
+
+
+Started GET "/beans" for 127.0.0.1 at 2022-12-09 11:56:04 -0700
+Processing by BeansController#index as */*
+  [1m[36mBean Load (0.1ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.08ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 1.0ms | Allocations: 7692)
+
+
+Started GET "/beans" for 127.0.0.1 at 2022-12-09 11:56:07 -0700
+Processing by BeansController#index as */*
+  [1m[36mBean Load (0.1ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.79ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.8ms | Allocations: 7689)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-09 11:56:27 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 804)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-09 11:57:36 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 796)
+
+
+Started GET "/beans" for 127.0.0.1 at 2022-12-09 11:57:42 -0700
+Processing by BeansController#index as */*
+  [1m[36mBean Load (0.1ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.26ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.8ms | Allocations: 7689)
+
+
+Started GET "/shops" for 127.0.0.1 at 2022-12-09 11:57:44 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.37ms)
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.3ms | Allocations: 6566)
+
+
+Started GET "/shops" for 127.0.0.1 at 2022-12-09 11:57:47 -0700
+Processing by ShopsController#index as */*
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.5ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.2ms | Allocations: 6566)
+
+
+Started GET "/beans" for 127.0.0.1 at 2022-12-09 11:57:47 -0700
+Processing by BeansController#index as */*
+  [1m[36mBean Load (0.1ms)[0m  [1m[34mSELECT "beans".* FROM "beans"[0m
+  ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mShop Load (0.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/beans_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.65ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.8ms | Allocations: 7689)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-09 11:57:51 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 794)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-09 11:57:58 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 800)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-09 11:57:59 -0700
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 182)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-12-09 11:59:28 -0700
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 368)
+
+
