@@ -7,11 +7,8 @@ class BeansController < ApplicationController
     end
 
     def show
-        bean = Bean.where(shop_id: params[:id])
-        if bean
-            render json: bean
-        else render json: { error: "Bean not found" }, status: :not_found
-      end
+        shop = Bean.find(params[:id])
+        render json: shop, serializer: BeansWithShopSerializerSerializer
     end
 
     def create
@@ -30,6 +27,6 @@ class BeansController < ApplicationController
     private
 
     def bean_params
-        params.require(:bean).permit(:origin, :name, :description, :image, :roast, :shop_id)
+        params.require(:bean, :shop).permit(:origin, :name, :description, :image, :roast, :shop_id)
     end
 end

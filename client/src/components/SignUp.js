@@ -58,7 +58,7 @@ function SignUp({ setUser }) {
         />
         <button type="submit">Submit</button>
         <p className="or2">or</p>
-        <Link to={`/beans`}><button>Return to sign in</button></Link>
+        <Link to={`/beans`}><button>Return to login</button></Link>
       </form>
     );
   }

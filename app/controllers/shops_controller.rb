@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
     def index
         render json: Shop.all
+    
     end
 
     def show
@@ -19,11 +20,7 @@ class ShopsController < ApplicationController
         head :no_content
     end
 
-    # def update
-    #     shop = Shop.find_by(id: params[:id])
-    #     shop.update!(shop_review)
-    #     render json: shop
-    # end
+
     def update
         shop = Shop.find(params[:id])
         if shop
@@ -36,7 +33,7 @@ class ShopsController < ApplicationController
 
     private
         def shop_params
-            params.permit(:name, :address, :review)
+            params.require(:shop).permit(:name, :address, :review, bean: :name)
         end
 
         def shop_review
